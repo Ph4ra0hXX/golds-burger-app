@@ -440,8 +440,8 @@ export default {
           />
         </div>
         <p>
-          Caso tenha escolhido entrega, o valor de 2 reais<br />
-          será somada ao total.<br />
+          Caso tenha escolhido entrega, o valor de<br />
+          2 reais será somada ao total.<br />
         </p>
 
         <button @click="finalizarPedido()" class="btn">finalizar</button>
