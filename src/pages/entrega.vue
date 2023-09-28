@@ -222,7 +222,7 @@ export default {
           }
           this.pedidoMontado += `\n${"-".repeat(30)}\n`
           this.pedidoMontado += `\n*Total:* _${(
-            Number(this.carrinho.getValorTotal) + 2
+            Number(this.carrinho.getValorTotal) + 3
           ).toFixed(2)}_\n`
 
           console.log(this.pedidoMontado)
@@ -441,7 +441,7 @@ export default {
         </div>
         <p id="textDescritivo">
           Caso tenha escolhido entrega, o valor<br />
-          de 2 reais será somada ao total.<br />
+          de 3 reais será somada ao total.<br />
         </p>
 
         <button @click="finalizarPedido()" class="btn">finalizar</button>
