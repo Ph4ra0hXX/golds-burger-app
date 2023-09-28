@@ -440,9 +440,8 @@ export default {
           />
         </div>
         <p>
-          Caso tenha escolhido entrega, o valor da taxa de entrega<br />
-          sera informada pelo chat do whatsapp assim como a chave<br />
-          PIX caso tenha escolhido essa forma de pagamento.
+          Caso tenha escolhido entrega, o valor de 2 reais será somada ao
+          total.<br />
         </p>
 
         <button @click="finalizarPedido()" class="btn">finalizar</button>
