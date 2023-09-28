@@ -439,7 +439,7 @@ export default {
             placeholder="troco para 50 reais"
           />
         </div>
-        <p>
+        <p id="textDescritivo">
           Caso tenha escolhido entrega, o valor<br />
           de 2 reais será somada ao total.<br />
         </p>
@@ -451,6 +451,10 @@ export default {
 </template>
 
 <style scoped>
+#textDescritivo {
+  margin-top: 10px;
+}
+
 #butCopiarPix {
   background-color: #aff63c;
   height: 40px;
