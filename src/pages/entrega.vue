@@ -21,7 +21,7 @@ export default {
 
     function copyToClipboard() {
       navigator.clipboard
-        .writeText("isso e um teste")
+        .writeText("88994634270")
         .then(() => {
           toast.success("Pix copiado!", {
             timeout: 2000,
