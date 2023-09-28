@@ -19,6 +19,20 @@ export default {
 
     const apesoEscolhido = ref(0)
 
+    function copyToClipboard() {
+      navigator.clipboard
+        .writeText("isso e um teste")
+        .then(() => {
+          toast.success("Pix copiado!", {
+            timeout: 2000,
+            position: "top-right",
+            icon: false,
+            showCloseButtonOnHover: true,
+          })
+        })
+        .catch((error) => console.error("Erro ao copiar: " + error))
+    }
+
     function finalizarPedido() {
       this.pedidoMontado = ""
 
@@ -156,10 +170,6 @@ export default {
         this.pedidoMontado += `\n${"-".repeat(30)}\n\n`
       }
 
-      if (dados.length > 0) {
-        this.pedidoMontado += `\n${"-".repeat(30)}\n`
-      }
-
       this.pedidoMontado += `*Observações:*\n - ${this.carrinho.observacao}\n`
 
       if (this.carrinho.dadosPessoais.formaDeEntrega == "Vou buscar") {
@@ -241,6 +251,7 @@ export default {
       finalizarPedido,
       valorEntrega,
       apesoEscolhido,
+      copyToClipboard,
     }
   },
 }
@@ -406,6 +417,12 @@ export default {
         </div>
         <br />
         <div
+          v-if="carrinho.dadosPessoais.formaDePagamento == 'Pix'"
+          class="input-field"
+        >
+          <button id="butCopiarPix" @click="copyToClipboard">Copiar PIX</button>
+        </div>
+        <div
           v-if="carrinho.dadosPessoais.formaDePagamento == 'Dinheiro'"
           class="info"
         >
@@ -435,6 +452,15 @@ export default {
 </template>
 
 <style scoped>
+#butCopiarPix {
+  background-color: #aff63c;
+  height: 40px;
+  border: 0;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 #formaDePagamento {
   display: flex;
 }
@@ -506,7 +532,7 @@ export default {
 }
 .price-card input[type="radio"]:checked ~ label {
   border: 1px solid #fdd426;
-  background: #7b245523;
+  background: #e4ec0d23;
   color: #fdd426;
   outline: none;
   border-width: 2px;
@@ -560,7 +586,6 @@ export default {
   border: 1px solid #fdd426;
   outline: none;
 }
-
 .grid {
   display: flex;
   gap: 10px;
