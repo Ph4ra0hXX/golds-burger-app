@@ -212,7 +212,7 @@ export default {
         ) {
           this.pedidoMontado += `\n*Nome:*\n - ${this.carrinho.dadosPessoais.nome}\n`
           this.pedidoMontado += `\n*Rua:*\n - ${this.carrinho.dadosPessoais.rua}\n`
-          this.pedidoMontado += `\n*Bairro:*\n - ${this.carrinho.dadosPessoais.bairro.nome}\n`
+          this.pedidoMontado += `\n*Bairro:*\n - ${this.carrinho.dadosPessoais.bairro}\n`
           this.pedidoMontado += `\n*Número:*\n - ${this.carrinho.dadosPessoais.numero}\n`
           this.pedidoMontado += `\n*Ponto de referência:*\n - ${this.carrinho.dadosPessoais.referencia}\n`
           this.pedidoMontado += `\n*Forma de entrega:*\n - ${this.carrinho.dadosPessoais.formaDeEntrega}\n`
