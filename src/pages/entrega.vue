@@ -184,8 +184,6 @@ export default {
 
           carrinho.pedidos = []
 
-          router.push("/")
-
           window.location.href = `https://wa.me/5588994634270?text=${this.pedidoMontado}`
         } else {
           toast.warning("✏️ Preencha todos os campos", {
@@ -223,8 +221,6 @@ export default {
           this.pedidoMontado = encodeURIComponent(this.pedidoMontado)
 
           carrinho.pedidos = []
-
-          router.push("/")
 
           window.location.href = `https://wa.me/5588994634270?text=${this.pedidoMontado}`
         } else {
