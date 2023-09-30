@@ -1,7 +1,7 @@
 <script>
 import { ref } from "vue"
 import { useToast } from "vue-toastification"
-import { menuStore, carrinhoStore } from "../store/produtos"
+import { carrinhoStore } from "../store/produtos"
 
 import { useRouter } from "vue-router"
 
@@ -9,13 +9,10 @@ export default {
   setup() {
     const carrinho = carrinhoStore()
     const toast = useToast()
-    const menu = menuStore()
 
     const router = useRouter()
 
     const pedidoMontado = ref("")
-
-    const valorEntrega = ref(menu.valorEntrega)
 
     const apesoEscolhido = ref(0)
 
@@ -183,8 +180,6 @@ export default {
           this.pedidoMontado += `\n${"-".repeat(30)}\n`
           this.pedidoMontado += `\n*Total:* _${this.carrinho.getValorTotal}_\n`
 
-          console.log(this.pedidoMontado)
-
           this.pedidoMontado = encodeURIComponent(this.pedidoMontado)
 
           carrinho.pedidos = []
@@ -225,8 +220,6 @@ export default {
             Number(this.carrinho.getValorTotal) + 3
           ).toFixed(2)}_\n`
 
-          console.log(this.pedidoMontado)
-
           this.pedidoMontado = encodeURIComponent(this.pedidoMontado)
 
           carrinho.pedidos = []
@@ -243,13 +236,11 @@ export default {
           })
         }
       }
-      console.log(carrinho.pedidos)
     }
 
     return {
       carrinho,
       finalizarPedido,
-      valorEntrega,
       apesoEscolhido,
       copyToClipboard,
     }

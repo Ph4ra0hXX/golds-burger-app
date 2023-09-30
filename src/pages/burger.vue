@@ -53,8 +53,6 @@ export default {
 
       carrinho.burgers.push(Burger.value)
 
-      carrinho.salvarPedido()
-
       router.push("/")
 
       toast.success("Adicionado com sucesso!", {

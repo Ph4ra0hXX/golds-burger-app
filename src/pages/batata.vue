@@ -10,16 +10,12 @@ export default {
 
     const carrinho = carrinhoStore()
 
-    const menu = menuStore()
-
     const Batata = ref({
       batataFrita: [{ nome: "Batata 300g", preco: 7.0, quantidade: 0 }],
     })
 
     function salvarPedido() {
       carrinho.batatas.push(Batata.value)
-
-      carrinho.salvarPedido()
 
       router.push("/")
 

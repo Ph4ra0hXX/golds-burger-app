@@ -10,8 +10,6 @@ export default {
 
     const carrinho = carrinhoStore()
 
-    const menu = menuStore()
-
     const Bebidas = ref({
       tipos: [
         { nome: "Coca Litro", quantidade: 0, preco: 7.0 },
@@ -38,8 +36,6 @@ export default {
 
     function salvarPedido() {
       carrinho.bebidas.push(Bebidas.value)
-
-      carrinho.salvarPedido()
 
       router.push("/")
 

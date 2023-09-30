@@ -10,17 +10,19 @@ export default {
 
     const carrinho = carrinhoStore()
 
-    const pedidos = ref([])
+    const burgers = ref([...carrinho.burgers])
+    const macarronadas = ref([...carrinho.macarronadas])
+    const batatas = ref([...carrinho.batatas])
+    const bebidas = ref([...carrinho.bebidas])
 
-    const menu = menuStore()
+    console.log(JSON.stringify(bebidas.value))
 
-    onMounted(() => {
-      pedidos.value = carrinho.pedidos
-    })
-
-    onUpdated(() => {
-      pedidos.value = carrinho.pedidos
-    })
+    const pedidos = ref([
+      ...carrinho.burgers,
+      ...carrinho.macarronadas,
+      ...carrinho.batatas,
+      ...carrinho.bebidas,
+    ])
 
     function mensagemDeRemover() {
       toast.success("✅ Item removido com sucesso!", {
@@ -62,35 +64,141 @@ export default {
       })
     }
 
-    function removerPedido(index) {
-      this.pedidos.splice(index, 1)
+    function removerPedidoBurgers(index) {
+      this.carrinho.burgers.splice(index, 1)
       this.notificacaoRemoverPedido()
     }
 
-    function removerItem(pedidoIndex, secao, itemIndex) {
-      this.pedidos[pedidoIndex][secao].splice(itemIndex, 1)
+    function removerItemBurgers(pedidoIndex, secao, itemIndex) {
+      this.carrinho.burgers[pedidoIndex][secao].splice(itemIndex, 1)
     }
 
-    function aumentarQuantidade(pedidoIndex, secao, itemIndex) {
-      this.pedidos[pedidoIndex][secao][itemIndex].quantidade++
+    function aumentarQuantidadeBurgers(pedidoIndex, secao, itemIndex) {
+      this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade++
     }
-    function diminuirQuantidade(pedidoIndex, secao, itemIndex) {
-      if (this.pedidos[pedidoIndex][secao][itemIndex].quantidade > 0) {
-        this.pedidos[pedidoIndex][secao][itemIndex].quantidade--
+
+    function diminuirQuantidadeBurgers(pedidoIndex, secao, itemIndex) {
+      if (this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade > 0) {
+        this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade--
       }
+
+      this.carrinho.burgers = removeObjetosSeQuantidadeZero(
+        this.carrinho.burgers
+      )
+    }
+
+    /*-------------------------------------------*/
+
+    function removerPedidoMacarronada(index) {
+      this.carrinho.macarronadas.splice(index, 1)
+      this.notificacaoRemoverPedido()
+    }
+
+    function removerItemMacarronada(pedidoIndex, secao, itemIndex) {
+      this.carrinho.macarronadas[pedidoIndex][secao].splice(itemIndex, 1)
+    }
+
+    function aumentarQuantidadeMacarronada(pedidoIndex, secao, itemIndex) {
+      this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade++
+    }
+
+    function diminuirQuantidadeMacarronada(pedidoIndex, secao, itemIndex) {
+      if (
+        this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade > 0
+      ) {
+        this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade--
+      }
+
+      this.carrinho.macarronadas = removeObjetosSeQuantidadeZero(
+        this.carrinho.macarronadas
+      )
+    }
+
+    /*-------------------------------------------*/
+
+    function removerPedidoBatata(index) {
+      this.carrinho.batatas.splice(index, 1)
+      this.notificacaoRemoverPedido()
+    }
+
+    function removerItemBatata(pedidoIndex, secao, itemIndex) {
+      this.carrinho.batatas[pedidoIndex][secao].splice(itemIndex, 1)
+    }
+
+    function aumentarQuantidadeBatata(pedidoIndex, secao, itemIndex) {
+      this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade++
+    }
+
+    function diminuirQuantidadeBatata(pedidoIndex, secao, itemIndex) {
+      if (this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade > 0) {
+        this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade--
+      }
+
+      this.carrinho.batatas = removeObjetosSeQuantidadeZero(
+        this.carrinho.batatas
+      )
+    }
+
+    /*-------------------------------------------*/
+
+    function removerPedidoBebida(index) {
+      this.carrinho.bebidas.splice(index, 1)
+      this.notificacaoRemoverPedido()
+    }
+
+    function removerItemBebida(pedidoIndex, secao, itemIndex) {
+      this.carrinho.bebidas[pedidoIndex][secao].splice(itemIndex, 1)
+    }
+
+    function aumentarQuantidadeBebida(pedidoIndex, secao, itemIndex) {
+      this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade++
+    }
+
+    function diminuirQuantidadeBebida(pedidoIndex, secao, itemIndex) {
+      if (this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade > 0) {
+        this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade--
+      }
+
+      this.carrinho.bebidas = removeObjetosSeQuantidadeZero(
+        this.carrinho.bebidas
+      )
+    }
+
+    function removeObjetosSeQuantidadeZero(array) {
+      return array.filter((objeto) => {
+        return Object.values(objeto).some((categoriaItens) => {
+          return categoriaItens.some((item) => item.quantidade > 0)
+        })
+      })
     }
 
     return {
+      burgers,
       pedidos,
+      macarronadas,
+      bebidas,
+      batatas,
       carrinho,
       notificacaoAdicionarPedido,
       notificacaoRemoverPedido,
       checarSeCarrinhoNaoEstaVazio,
       mensagemDeRemover,
-      removerPedido,
-      removerItem,
-      aumentarQuantidade,
-      diminuirQuantidade,
+      removerPedidoBurgers,
+      removerItemBurgers,
+      aumentarQuantidadeBurgers,
+      diminuirQuantidadeBurgers,
+      removerPedidoMacarronada,
+      removerItemMacarronada,
+      aumentarQuantidadeMacarronada,
+      diminuirQuantidadeMacarronada,
+      removerPedidoBatata,
+      removerItemBatata,
+      aumentarQuantidadeBatata,
+      diminuirQuantidadeBatata,
+      removerPedidoBebida,
+      removerItemBebida,
+      aumentarQuantidadeBebida,
+      diminuirQuantidadeBebida,
     }
   },
 }
@@ -101,11 +209,8 @@ export default {
     <div class="paypal__subheader-wrapper">
       <div class="paypal__subheader">
         <h1 class="paypal__username">Olá 👋</h1>
-        <span v-if="pedidos.length <= 1" class="paypal__help-text"
-          >Você selecionou {{ pedidos.length }} item!</span
-        >
-        <span v-if="pedidos.length > 1" class="paypal__help-text"
-          >Você selecionou {{ pedidos.length }} itens!</span
+        <span class="paypal__help-text"
+          >Você selecionou {{ carrinho.getTotalPedidos }} item!</span
         >
       </div>
     </div>
@@ -113,10 +218,10 @@ export default {
       <hr />
       <div
         id="pedidoFundo"
-        v-for="(pedido, pedidoIndex) in pedidos"
+        v-for="(pedido, pedidoIndex) in carrinho.burgers"
         :key="pedidoIndex"
       >
-        <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>
+        <!-- <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>-->
 
         <div v-for="(secaoItens, secao) in pedido" :key="secao">
           <p v-for="(item, itemIndex) in secaoItens" :key="itemIndex">
@@ -130,14 +235,18 @@ export default {
                 </div>
                 <div>
                   <button
-                    @click="aumentarQuantidade(pedidoIndex, secao, itemIndex)"
+                    @click="
+                      aumentarQuantidadeBurgers(pedidoIndex, secao, itemIndex)
+                    "
                     class="botao1"
                   >
                     +
                   </button>
 
                   <button
-                    @click="diminuirQuantidade(pedidoIndex, secao, itemIndex)"
+                    @click="
+                      diminuirQuantidadeBurgers(pedidoIndex, secao, itemIndex)
+                    "
                     class="botao2"
                   >
                     -
@@ -149,7 +258,162 @@ export default {
         </div>
         <br />
 
-        <button id="butDelete" @click="removerPedido(pedidoIndex)">
+        <button id="butDelete" @click="removerPedidoBurgers(pedidoIndex)">
+          Remover Pedido
+        </button>
+        <br />
+        <br />
+        <hr />
+      </div>
+      <div
+        id="pedidoFundo"
+        v-for="(pedido, pedidoIndex) in carrinho.macarronadas"
+        :key="pedidoIndex"
+      >
+        <!-- <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>-->
+
+        <div v-for="(secaoItens, secao) in pedido" :key="secao">
+          <p v-for="(item, itemIndex) in secaoItens" :key="itemIndex">
+            <template v-if="item.quantidade > 0">
+              <div id="priceAndDiv">
+                <div id="priceAndName">
+                  <div>
+                    <span id="quantidadeDiv">{{ item.quantidade }}x</span>
+                    {{ item.nome }}
+                  </div>
+                </div>
+                <div>
+                  <button
+                    @click="
+                      aumentarQuantidadeMacarronada(
+                        pedidoIndex,
+                        secao,
+                        itemIndex
+                      )
+                    "
+                    class="botao1"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    @click="
+                      diminuirQuantidadeMacarronada(
+                        pedidoIndex,
+                        secao,
+                        itemIndex
+                      )
+                    "
+                    class="botao2"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </template>
+          </p>
+        </div>
+        <br />
+
+        <button id="butDelete" @click="removerPedidoMacarronada(pedidoIndex)">
+          Remover Pedido
+        </button>
+        <br />
+        <br />
+        <hr />
+      </div>
+      <div
+        id="pedidoFundo"
+        v-for="(pedido, pedidoIndex) in carrinho.batatas"
+        :key="pedidoIndex"
+      >
+        <!-- <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>-->
+
+        <div v-for="(secaoItens, secao) in pedido" :key="secao">
+          <p v-for="(item, itemIndex) in secaoItens" :key="itemIndex">
+            <template v-if="item.quantidade > 0">
+              <div id="priceAndDiv">
+                <div id="priceAndName">
+                  <div>
+                    <span id="quantidadeDiv">{{ item.quantidade }}x</span>
+                    {{ item.nome }}
+                  </div>
+                </div>
+                <div>
+                  <button
+                    @click="
+                      aumentarQuantidadeBatata(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao1"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    @click="
+                      diminuirQuantidadeBatata(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao2"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </template>
+          </p>
+        </div>
+        <br />
+
+        <button id="butDelete" @click="removerPedidoBatata(pedidoIndex)">
+          Remover Pedido
+        </button>
+        <br />
+        <br />
+        <hr />
+      </div>
+      <div
+        id="pedidoFundo"
+        v-for="(pedido, pedidoIndex) in carrinho.bebidas"
+        :key="pedidoIndex"
+      >
+        <!-- <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>-->
+
+        <div v-for="(secaoItens, secao) in pedido" :key="secao">
+          <p v-for="(item, itemIndex) in secaoItens" :key="itemIndex">
+            <template v-if="item.quantidade > 0">
+              <div id="priceAndDiv">
+                <div id="priceAndName">
+                  <div>
+                    <span id="quantidadeDiv">{{ item.quantidade }}x</span>
+                    {{ item.nome }}
+                  </div>
+                </div>
+                <div>
+                  <button
+                    @click="
+                      aumentarQuantidadeBebida(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao1"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    @click="
+                      diminuirQuantidadeBebida(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao2"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </template>
+          </p>
+        </div>
+        <br />
+
+        <button id="butDelete" @click="removerPedidoBebida(pedidoIndex)">
           Remover Pedido
         </button>
         <br />

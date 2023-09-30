@@ -27,7 +27,14 @@ export const carrinhoStore = defineStore("carrinho", {
     getValorTotal() {
       let total = 0
 
-      this.pedidos.forEach((categoria) => {
+      var pedidos = [
+        ...this.burgers,
+        ...this.macarronadas,
+        ...this.batatas,
+        ...this.bebidas,
+      ]
+
+      pedidos.forEach((categoria) => {
         for (const chave in categoria) {
           categoria[chave].forEach((item) => {
             total += item.preco * item.quantidade
@@ -38,20 +45,16 @@ export const carrinhoStore = defineStore("carrinho", {
       return total.toFixed(2)
     },
     getTotalPedidos() {
-      return this.pedidos.length
+      return (
+        this.burgers.length +
+        this.macarronadas.length +
+        this.batatas.length +
+        this.bebidas.length
+      )
     },
   },
   actions: {
-    salvarPedido(pedido) {
-      this.pedidos = [
-        ...this.burgers,
-        ...this.macarronadas,
-        ...this.batatas,
-        ...this.bebidas,
-      ]
-
-      console.log(JSON.stringify(this.pedidos))
-    },
+    salvarPedido(pedido) {},
   },
 })
 
@@ -66,13 +69,13 @@ export const produtosStore = defineStore("produto", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-       /* {
+        {
           id: 2,
           nome: "MACARONADA",
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        },*/
+        },
         {
           id: 6,
           nome: "BATATA FRITA",

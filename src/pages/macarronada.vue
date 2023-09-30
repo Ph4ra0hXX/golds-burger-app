@@ -10,8 +10,6 @@ export default {
 
     const carrinho = carrinhoStore()
 
-    const menu = menuStore()
-
     const Macarronada = ref({
       macarrao: [{ nome: "Macarrão Talharim", quantidade: 1, preco: 15 }],
       carnes: [
@@ -30,8 +28,6 @@ export default {
 
     function salvarPedido() {
       carrinho.macarronadas.push(Macarronada.value)
-
-      carrinho.salvarPedido()
 
       router.push("/")
 
