@@ -1,4 +1,4 @@
-import { defineStore } from "pinia"
+import { defineStore } from "pinia";
 
 export const carrinhoStore = defineStore("carrinho", {
   state: () => {
@@ -21,28 +21,28 @@ export const carrinhoStore = defineStore("carrinho", {
       valorTotal: 0,
       quantidadeDeItens: 0,
       observacao: "",
-    }
+    };
   },
   getters: {
     getValorTotal() {
-      let total = 0
+      let total = 0;
 
       var pedidos = [
         ...this.burgers,
         ...this.macarronadas,
         ...this.batatas,
         ...this.bebidas,
-      ]
+      ];
 
       pedidos.forEach((categoria) => {
         for (const chave in categoria) {
           categoria[chave].forEach((item) => {
-            total += item.preco * item.quantidade
-          })
+            total += item.preco * item.quantidade;
+          });
         }
-      })
+      });
 
-      return total.toFixed(2)
+      return total.toFixed(2);
     },
     getTotalPedidos() {
       return (
@@ -50,13 +50,13 @@ export const carrinhoStore = defineStore("carrinho", {
         this.macarronadas.length +
         this.batatas.length +
         this.bebidas.length
-      )
+      );
     },
   },
   actions: {
     salvarPedido(pedido) {},
   },
-})
+});
 
 export const produtosStore = defineStore("produto", {
   state: () => {
@@ -69,13 +69,13 @@ export const produtosStore = defineStore("produto", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-        /* {
+        {
           id: 2,
           nome: "MACARONADA",
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        }, */
+        },
         {
           id: 6,
           nome: "BATATA FRITA",
@@ -91,10 +91,10 @@ export const produtosStore = defineStore("produto", {
           url: "/bebidas",
         },
       ],
-    }
+    };
   },
-})
+});
 
 export const menuStore = defineStore("menu", {
   state: () => {},
-})
+});
