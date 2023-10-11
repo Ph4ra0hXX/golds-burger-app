@@ -1,43 +1,43 @@
 <script>
-import { ref, watch, onUpdated } from "vue"
-import { menuStore, carrinhoStore } from "../store/produtos"
-import { useToast } from "vue-toastification"
-import router from "../router/index"
+import { ref, watch, onUpdated } from "vue";
+import { menuStore, carrinhoStore } from "../store/produtos";
+import { useToast } from "vue-toastification";
+import router from "../router/index";
 
 export default {
   setup() {
-    const toast = useToast()
+    const toast = useToast();
 
-    const carrinho = carrinhoStore()
+    const carrinho = carrinhoStore();
 
     const Batata = ref({
       batataFrita: [{ nome: "Batata 300g", preco: 7.0, quantidade: 0 }],
-    })
+    });
 
     function salvarPedido() {
-      carrinho.batatas.push(Batata.value)
+      carrinho.batatas.push(Batata.value);
 
-      router.push("/")
+      router.push("/");
 
       toast.success("Adicionado com sucesso!", {
         timeout: 2000,
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function voltar() {
-      router.push("/")
+      router.push("/");
     }
 
     return {
       Batata,
       salvarPedido,
       voltar,
-    }
+    };
   },
-}
+};
 </script>
 
 <template>

@@ -3,13 +3,24 @@ import { ref } from "vue";
 
 import Card from "../components/card.vue";
 
-import { produtosStore } from "../store/produtos";
+import { produtosStore, produtosStore2 } from "../store/produtos";
 
 const store = produtosStore();
 
+const store2 = produtosStore2();
+
 const cardData = ref(store.cardDataStore);
+const cardData2 = ref(store2.cardDataStore);
+
+function isWednesday() {
+  const currentDate = new Date();
+  const dayOfWeek = currentDate.getDay();
+
+  return dayOfWeek === 3;
+}
 </script>
 
 <template>
-  <Card v-for="data in cardData" :data="data" />
+  <Card v-if="isWednesday()" v-for="data2 in cardData2" :data="data2" />
+  <Card v-if="!isWednesday()" v-for="data in cardData" :data="data" />
 </template>
