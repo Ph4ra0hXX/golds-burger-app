@@ -21,6 +21,6 @@ function isWednesday() {
 </script>
 
 <template>
-  <!-- <Card v-if="isWednesday()" v-for="data2 in cardData2" :data="data2" />-->
-  <Card v-if="isWednesday()" v-for="data in cardData" :data="data" />
+  <Card v-if="isWednesday()" v-for="data2 in cardData2" :data="data2" />
+  <Card v-if="!isWednesday()" v-for="data in cardData" :data="data" />
 </template>
