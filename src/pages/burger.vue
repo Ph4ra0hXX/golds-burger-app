@@ -38,7 +38,7 @@ export default {
         { nome: "Calabresa", preco: 2.0, quantidade: 0 },
         { nome: "Batata Palha", preco: 1.0, quantidade: 0 },
         { nome: "Molho Barbecue", preco: 1.0, quantidade: 0 },
-        { nome: "Milho Verde", preco: 1.0, quantidade: 0 },
+       // { nome: "Milho Verde", preco: 1.0, quantidade: 0 },
       ],
       Verdura: [
         { nome: "Alface", preco: 0.0, quantidade: 0 },
