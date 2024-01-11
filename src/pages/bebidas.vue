@@ -21,6 +21,7 @@ export default {
         { nome: "Guaraná Lata", quantidade: 0, preco: 4.0 },
         { nome: "Laranja Lata", quantidade: 0, preco: 4.0 },
         { nome: "Uva Lata", quantidade: 0, preco: 4.0 },
+        { nome: "São Geraldo Lata", quantidade: 0, preco: 4.0 },
         { nome: "Schweppes Cítrus Lata", quantidade: 0, preco: 4.5 },
         { nome: "Água 500ml", quantidade: 0, preco: 2.0 },
         { nome: "Água com Gás 500ml", quantidade: 0, preco: 3.0 },
