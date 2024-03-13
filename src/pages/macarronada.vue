@@ -20,7 +20,7 @@ export default {
         { nome: "Molho Rosê", quantidade: 0, preco: 0 },
         { nome: "Bacon", quantidade: 0, preco: 0 },
         { nome: "Mussarela", quantidade: 0, preco: 0 },
-        { nome: "Azeitona", quantidade: 0, preco: 0 },
+        //{ nome: "Azeitona", quantidade: 0, preco: 0 },
         { nome: "Milho Verde", quantidade: 0, preco: 0 },
         { nome: "Orégano", quantidade: 0, preco: 0 },
       ],
