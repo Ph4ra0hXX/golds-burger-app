@@ -13,7 +13,7 @@ export default {
     const Macarronada = ref({
       macarrao: [{ nome: "Macarrão Talharim", quantidade: 1, preco: 15 }],
       carnes: [
-        //{ nome: "Carne Moída", quantidade: 0, preco: 0 },
+        { nome: "Carne Moída", quantidade: 0, preco: 0 },
         { nome: "Frango", quantidade: 0, preco: 0 },
       ],
       ingredientes: [
