@@ -1,6 +1,6 @@
 <script>
 import { ref, watch, onUpdated } from "vue"
-import { menuStore, carrinhoStore } from "../store/produtos"
+import { carrinhoStore } from "../store/produtos"
 import { useToast } from "vue-toastification"
 import router from "../router/index"
 

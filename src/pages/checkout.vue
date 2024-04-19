@@ -1,28 +1,27 @@
 <script>
-import { ref, onUpdated, onMounted } from "vue"
-import router from "../router/index"
-import { useToast } from "vue-toastification"
-import { carrinhoStore, menuStore } from "../store/produtos"
+import { ref, onUpdated, onMounted } from "vue";
+import router from "../router/index";
+import { useToast } from "vue-toastification";
+import { carrinhoStore } from "../store/produtos";
 
 export default {
   setup() {
-    const toast = useToast()
+    const toast = useToast();
 
-    const carrinho = carrinhoStore()
+    const carrinho = carrinhoStore();
 
-    const burgers = ref([...carrinho.burgers])
-    const macarronadas = ref([...carrinho.macarronadas])
-    const batatas = ref([...carrinho.batatas])
-    const bebidas = ref([...carrinho.bebidas])
-
-    console.log(JSON.stringify(bebidas.value))
+    const burgers = ref([...carrinho.burgers]);
+    const macarronadas = ref([...carrinho.macarronadas]);
+    const batatas = ref([...carrinho.batatas]);
+    const bebidas = ref([...carrinho.bebidas]);
 
     const pedidos = ref([
       ...carrinho.burgers,
       ...carrinho.macarronadas,
       ...carrinho.batatas,
+      ...carrinho.sobremesas,
       ...carrinho.bebidas,
-    ])
+    ]);
 
     function mensagemDeRemover() {
       toast.success("✅ Item removido com sucesso!", {
@@ -30,19 +29,19 @@ export default {
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function checarSeCarrinhoNaoEstaVazio() {
       if (carrinho.getTotalPedidos > 0) {
-        router.push("/entrega")
+        router.push("/entrega");
       } else {
         toast.warning("🛒 Carrinho vazio!", {
           timeout: 2000,
           position: "top-right",
           icon: false,
           showCloseButtonOnHover: true,
-        })
+        });
       }
     }
 
@@ -52,7 +51,7 @@ export default {
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function notificacaoRemoverPedido() {
@@ -61,115 +60,142 @@ export default {
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function removerPedidoBurgers(index) {
-      this.carrinho.burgers.splice(index, 1)
-      this.notificacaoRemoverPedido()
+      this.carrinho.burgers.splice(index, 1);
+      this.notificacaoRemoverPedido();
     }
 
     function removerItemBurgers(pedidoIndex, secao, itemIndex) {
-      this.carrinho.burgers[pedidoIndex][secao].splice(itemIndex, 1)
+      this.carrinho.burgers[pedidoIndex][secao].splice(itemIndex, 1);
     }
 
     function aumentarQuantidadeBurgers(pedidoIndex, secao, itemIndex) {
-      this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade++
+      this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade++;
     }
 
     function diminuirQuantidadeBurgers(pedidoIndex, secao, itemIndex) {
       if (this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade > 0) {
-        this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade--
+        this.carrinho.burgers[pedidoIndex][secao][itemIndex].quantidade--;
       }
 
       this.carrinho.burgers = removeObjetosSeQuantidadeZero(
         this.carrinho.burgers
-      )
+      );
     }
 
     /*-------------------------------------------*/
 
     function removerPedidoMacarronada(index) {
-      this.carrinho.macarronadas.splice(index, 1)
-      this.notificacaoRemoverPedido()
+      this.carrinho.macarronadas.splice(index, 1);
+      this.notificacaoRemoverPedido();
     }
 
     function removerItemMacarronada(pedidoIndex, secao, itemIndex) {
-      this.carrinho.macarronadas[pedidoIndex][secao].splice(itemIndex, 1)
+      this.carrinho.macarronadas[pedidoIndex][secao].splice(itemIndex, 1);
     }
 
     function aumentarQuantidadeMacarronada(pedidoIndex, secao, itemIndex) {
-      this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade++
+      this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade++;
     }
 
     function diminuirQuantidadeMacarronada(pedidoIndex, secao, itemIndex) {
       if (
         this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade > 0
       ) {
-        this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade--
+        this.carrinho.macarronadas[pedidoIndex][secao][itemIndex].quantidade--;
       }
 
       this.carrinho.macarronadas = removeObjetosSeQuantidadeZero(
         this.carrinho.macarronadas
-      )
+      );
     }
 
     /*-------------------------------------------*/
 
     function removerPedidoBatata(index) {
-      this.carrinho.batatas.splice(index, 1)
-      this.notificacaoRemoverPedido()
+      this.carrinho.batatas.splice(index, 1);
+      this.notificacaoRemoverPedido();
     }
 
     function removerItemBatata(pedidoIndex, secao, itemIndex) {
-      this.carrinho.batatas[pedidoIndex][secao].splice(itemIndex, 1)
+      this.carrinho.batatas[pedidoIndex][secao].splice(itemIndex, 1);
     }
 
     function aumentarQuantidadeBatata(pedidoIndex, secao, itemIndex) {
-      this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade++
+      this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade++;
     }
 
     function diminuirQuantidadeBatata(pedidoIndex, secao, itemIndex) {
       if (this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade > 0) {
-        this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade--
+        this.carrinho.batatas[pedidoIndex][secao][itemIndex].quantidade--;
       }
 
       this.carrinho.batatas = removeObjetosSeQuantidadeZero(
         this.carrinho.batatas
-      )
+      );
+    }
+
+    /*-------------------------------------------*/
+
+    function removerPedidoSobremesa(index) {
+      this.carrinho.sobremesas.splice(index, 1);
+      this.notificacaoRemoverPedido();
+    }
+
+    function removerItemSobremesa(pedidoIndex, secao, itemIndex) {
+      this.carrinho.sobremesas[pedidoIndex][secao].splice(itemIndex, 1);
+    }
+
+    function aumentarQuantidadeSobremesa(pedidoIndex, secao, itemIndex) {
+      this.carrinho.sobremesas[pedidoIndex][secao][itemIndex].quantidade++;
+    }
+
+    function diminuirQuantidadeSobremesa(pedidoIndex, secao, itemIndex) {
+      if (
+        this.carrinho.sobremesas[pedidoIndex][secao][itemIndex].quantidade > 0
+      ) {
+        this.carrinho.sobremesas[pedidoIndex][secao][itemIndex].quantidade--;
+      }
+
+      this.carrinho.sobremesas = removeObjetosSeQuantidadeZero(
+        this.carrinho.sobremesas
+      );
     }
 
     /*-------------------------------------------*/
 
     function removerPedidoBebida(index) {
-      this.carrinho.bebidas.splice(index, 1)
-      this.notificacaoRemoverPedido()
+      this.carrinho.bebidas.splice(index, 1);
+      this.notificacaoRemoverPedido();
     }
 
     function removerItemBebida(pedidoIndex, secao, itemIndex) {
-      this.carrinho.bebidas[pedidoIndex][secao].splice(itemIndex, 1)
+      this.carrinho.bebidas[pedidoIndex][secao].splice(itemIndex, 1);
     }
 
     function aumentarQuantidadeBebida(pedidoIndex, secao, itemIndex) {
-      this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade++
+      this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade++;
     }
 
     function diminuirQuantidadeBebida(pedidoIndex, secao, itemIndex) {
       if (this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade > 0) {
-        this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade--
+        this.carrinho.bebidas[pedidoIndex][secao][itemIndex].quantidade--;
       }
 
       this.carrinho.bebidas = removeObjetosSeQuantidadeZero(
         this.carrinho.bebidas
-      )
+      );
     }
 
     function removeObjetosSeQuantidadeZero(array) {
       return array.filter((objeto) => {
         return Object.values(objeto).some((categoriaItens) => {
-          return categoriaItens.some((item) => item.quantidade > 0)
-        })
-      })
+          return categoriaItens.some((item) => item.quantidade > 0);
+        });
+      });
     }
 
     return {
@@ -199,9 +225,13 @@ export default {
       removerItemBebida,
       aumentarQuantidadeBebida,
       diminuirQuantidadeBebida,
-    }
+      removerPedidoSobremesa,
+      removerItemSobremesa,
+      aumentarQuantidadeSobremesa,
+      diminuirQuantidadeSobremesa,
+    };
   },
-}
+};
 </script>
 
 <template>
@@ -365,6 +395,55 @@ export default {
         <br />
 
         <button id="butDelete" @click="removerPedidoBatata(pedidoIndex)">
+          Remover Pedido
+        </button>
+        <br />
+        <br />
+        <hr />
+      </div>
+      <div
+        id="pedidoFundo"
+        v-for="(pedido, pedidoIndex) in carrinho.sobremesas"
+        :key="pedidoIndex"
+      >
+        <!-- <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>-->
+
+        <div v-for="(secaoItens, secao) in pedido" :key="secao">
+          <p v-for="(item, itemIndex) in secaoItens" :key="itemIndex">
+            <template v-if="item.quantidade > 0">
+              <div id="priceAndDiv">
+                <div id="priceAndName">
+                  <div>
+                    <span id="quantidadeDiv">{{ item.quantidade }}x</span>
+                    {{ item.nome }}
+                  </div>
+                </div>
+                <div>
+                  <button
+                    @click="
+                      aumentarQuantidadeSobremesa(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao1"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    @click="
+                      diminuirQuantidadeSobremesa(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao2"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </template>
+          </p>
+        </div>
+        <br />
+
+        <button id="butDelete" @click="removerPedidoSobremesa(pedidoIndex)">
           Remover Pedido
         </button>
         <br />

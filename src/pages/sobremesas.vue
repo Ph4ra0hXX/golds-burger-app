@@ -10,12 +10,15 @@ export default {
 
     const carrinho = carrinhoStore();
 
-    const Batata = ref({
-      batataFrita: [{ nome: "Batata 300g", preco: 7.0, quantidade: 0 }],
+    const Sobremesas = ref({
+      tipos: [
+        { nome: "Pudim 120G", quantidade: 0, preco: 6.0 },
+        { nome: "Torta de abacaxi 120G", quantidade: 0, preco: 6.0 },
+      ],
     });
 
     function salvarPedido() {
-      carrinho.batatas.push(Batata.value);
+      carrinho.sobremesas.push(Sobremesas.value);
 
       router.push("/");
 
@@ -32,7 +35,7 @@ export default {
     }
 
     return {
-      Batata,
+      Sobremesas,
       salvarPedido,
       voltar,
     };
@@ -45,10 +48,10 @@ export default {
     <div id="listar">
       <div class="dotted-line">
         <hr />
-        <span id="textDividers">Batata Frita</span>
+        <span id="textDividers">Sobremesas</span>
         <hr />
       </div>
-      <div v-for="(item, index) in Batata.batataFrita" :key="item">
+      <div v-for="(item, index) in Sobremesas.tipos" :key="item">
         <button class="botao1" @click="item.quantidade++">+</button>
 
         <button
@@ -67,8 +70,6 @@ export default {
         <p id="itens"></p>
         <br />
       </div>
-
-      <!---------------------------->
 
       <button @click="salvarPedido" id="butOpcoes" type="submit" value="Submit">
         adicionar
