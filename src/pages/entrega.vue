@@ -1,20 +1,20 @@
 <script>
-import { ref } from "vue"
-import { useToast } from "vue-toastification"
-import { carrinhoStore } from "../store/produtos"
+import { ref } from "vue";
+import { useToast } from "vue-toastification";
+import { carrinhoStore } from "../store/produtos";
 
-import { useRouter } from "vue-router"
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
-    const carrinho = carrinhoStore()
-    const toast = useToast()
+    const carrinho = carrinhoStore();
+    const toast = useToast();
 
-    const router = useRouter()
+    const router = useRouter();
 
-    const pedidoMontado = ref("")
+    const pedidoMontado = ref("");
 
-    const apesoEscolhido = ref(0)
+    const apesoEscolhido = ref(0);
 
     function copyToClipboard() {
       navigator.clipboard
@@ -25,18 +25,18 @@ export default {
             position: "top-right",
             icon: false,
             showCloseButtonOnHover: true,
-          })
+          });
         })
-        .catch((error) => console.error("Erro ao copiar: " + error))
+        .catch((error) => console.error("Erro ao copiar: " + error));
     }
 
     function finalizarPedido() {
-      this.pedidoMontado = ""
+      this.pedidoMontado = "";
 
-      var dados = this.carrinho.burgers
+      var dados = this.carrinho.burgers;
 
       if (dados.length > 0) {
-        this.pedidoMontado += "*Burger*\n\n"
+        this.pedidoMontado += "*Burger*\n\n";
 
         const resultado = dados
           .map((categoria) => {
@@ -44,36 +44,36 @@ export default {
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
                   (item) => item.quantidade > 0
-                )
+                );
 
                 if (itensComQuantidade.length > 0) {
                   const categoriaFormatada = `${itensComQuantidade
                     .map((item) => ` *${item.quantidade}x* ${item.nome}`)
-                    .join("\n")}`
-                  return `${categoriaFormatada}\n`
+                    .join("\n")}`;
+                  return `${categoriaFormatada}\n`;
                 } else {
-                  return null
+                  return null;
                 }
               })
               .filter((categoria) => categoria !== null)
-              .join("\n")
+              .join("\n");
           })
           .filter((categoria) => categoria !== null)
-          .join(`\n${"-".repeat(30)}\n\n`)
+          .join(`\n${"-".repeat(30)}\n\n`);
 
-        this.pedidoMontado += resultado
+        this.pedidoMontado += resultado;
       }
 
-      var numeroDoPedido = 1
+      var numeroDoPedido = 1;
 
       if (dados.length > 0) {
-        this.pedidoMontado += `\n${"-".repeat(31)}\n`
+        this.pedidoMontado += `\n${"-".repeat(31)}\n`;
       }
 
-      var dados2 = this.carrinho.macarronadas
+      var dados2 = this.carrinho.macarronadas;
 
       if (dados2.length > 0) {
-        this.pedidoMontado += "\n*Macarronada*\n\n"
+        this.pedidoMontado += "\n*Macarronada*\n\n";
 
         const resultado2 = dados2
           .map((categoria) => {
@@ -81,30 +81,30 @@ export default {
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
                   (item) => item.quantidade > 0
-                )
+                );
 
                 if (itensComQuantidade.length > 0) {
                   const categoriaFormatada = `${itensComQuantidade
                     .map((item) => ` *${item.quantidade}x* ${item.nome}`)
-                    .join("\n")}`
-                  return `${categoriaFormatada}\n`
+                    .join("\n")}`;
+                  return `${categoriaFormatada}\n`;
                 } else {
-                  return null
+                  return null;
                 }
               })
               .filter((categoria) => categoria !== null)
-              .join("\n")
+              .join("\n");
           })
           .filter((categoria) => categoria !== null)
-          .join(`\n${"-".repeat(30)}\n\n`)
+          .join(`\n${"-".repeat(30)}\n\n`);
 
-        this.pedidoMontado += resultado2
+        this.pedidoMontado += resultado2;
       }
 
-      var dados3 = this.carrinho.batatas
+      var dados3 = this.carrinho.batatas;
 
       if (dados3.length > 0) {
-        this.pedidoMontado += "\n*Batata Frita*\n\n"
+        this.pedidoMontado += "\n*Batata Frita*\n\n";
 
         const resultado3 = dados3
           .map((categoria) => {
@@ -112,30 +112,61 @@ export default {
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
                   (item) => item.quantidade > 0
-                )
+                );
 
                 if (itensComQuantidade.length > 0) {
                   const categoriaFormatada = `${itensComQuantidade
                     .map((item) => ` *${item.quantidade}x* ${item.nome}`)
-                    .join("\n")}`
-                  return `${categoriaFormatada}\n`
+                    .join("\n")}`;
+                  return `${categoriaFormatada}\n`;
                 } else {
-                  return null
+                  return null;
                 }
               })
               .filter((categoria) => categoria !== null)
-              .join("\n")
+              .join("\n");
           })
           .filter((categoria) => categoria !== null)
-          .join(`\n${"-".repeat(30)}\n\n`)
+          .join(`\n${"-".repeat(30)}\n\n`);
 
-        this.pedidoMontado += resultado3
+        this.pedidoMontado += resultado3;
       }
 
-      var dados4 = this.carrinho.bebidas
+      var dados6 = this.carrinho.sobremesas;
+
+      if (dados6.length > 0) {
+        this.pedidoMontado += "\n*Sobremesas*\n\n";
+
+        const resultado6 = dados6
+          .map((categoria) => {
+            return Object.keys(categoria)
+              .map((chave) => {
+                const itensComQuantidade = categoria[chave].filter(
+                  (item) => item.quantidade > 0
+                );
+
+                if (itensComQuantidade.length > 0) {
+                  const categoriaFormatada = `${itensComQuantidade
+                    .map((item) => ` *${item.quantidade}x* ${item.nome}`)
+                    .join("\n")}`;
+                  return `${categoriaFormatada}\n`;
+                } else {
+                  return null;
+                }
+              })
+              .filter((categoria) => categoria !== null)
+              .join("\n");
+          })
+          .filter((categoria) => categoria !== null)
+          .join(`\n${"-".repeat(30)}\n\n`);
+
+        this.pedidoMontado += resultado6;
+      }
+
+      var dados4 = this.carrinho.bebidas;
 
       if (dados4.length > 0) {
-        this.pedidoMontado += "\n*Bebidas*\n\n"
+        this.pedidoMontado += "\n*Bebidas*\n\n";
 
         const resultado4 = dados4
           .map((categoria) => {
@@ -143,55 +174,55 @@ export default {
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
                   (item) => item.quantidade > 0
-                )
+                );
 
                 if (itensComQuantidade.length > 0) {
                   const categoriaFormatada = `${itensComQuantidade
                     .map((item) => ` *${item.quantidade}x* ${item.nome}`)
-                    .join("\n")}`
-                  return `${categoriaFormatada}\n`
+                    .join("\n")}`;
+                  return `${categoriaFormatada}\n`;
                 } else {
-                  return null
+                  return null;
                 }
               })
               .filter((categoria) => categoria !== null)
-              .join("\n")
+              .join("\n");
           })
           .filter((categoria) => categoria !== null)
-          .join(`\n${"-".repeat(30)}\n\n`)
+          .join(`\n${"-".repeat(30)}\n\n`);
 
-        this.pedidoMontado += resultado4
+        this.pedidoMontado += resultado4;
       }
 
       if (dados4.length > 0) {
-        this.pedidoMontado += `\n${"-".repeat(30)}\n\n`
+        this.pedidoMontado += `\n${"-".repeat(30)}\n\n`;
       }
 
-      this.pedidoMontado += `*Observações:*\n - ${this.carrinho.observacao}\n`
+      this.pedidoMontado += `\n*Observações:*\n - ${this.carrinho.observacao}\n`;
 
       if (this.carrinho.dadosPessoais.formaDeEntrega == "Vou buscar") {
         if (this.carrinho.dadosPessoais.nome != "") {
-          this.pedidoMontado += `\n*Nome:*\n - ${this.carrinho.dadosPessoais.nome}\n`
-          this.pedidoMontado += `\n*Forma de entrega:*\n - ${this.carrinho.dadosPessoais.formaDeEntrega}\n`
-          this.pedidoMontado += `\n*Forma de Pagamento:*\n - ${this.carrinho.dadosPessoais.formaDePagamento}\n`
+          this.pedidoMontado += `\n*Nome:*\n - ${this.carrinho.dadosPessoais.nome}\n`;
+          this.pedidoMontado += `\n*Forma de entrega:*\n - ${this.carrinho.dadosPessoais.formaDeEntrega}\n`;
+          this.pedidoMontado += `\n*Forma de Pagamento:*\n - ${this.carrinho.dadosPessoais.formaDePagamento}\n`;
           if (this.carrinho.dadosPessoais.formaDePagamento == "Dinheiro") {
-            this.pedidoMontado += `\n*Troco para:*\n - ${this.carrinho.dadosPessoais.troco}\n`
+            this.pedidoMontado += `\n*Troco para:*\n - ${this.carrinho.dadosPessoais.troco}\n`;
           }
-          this.pedidoMontado += `\n${"-".repeat(30)}\n`
-          this.pedidoMontado += `\n*Total:* _${this.carrinho.getValorTotal}_\n`
+          this.pedidoMontado += `\n${"-".repeat(30)}\n`;
+          this.pedidoMontado += `\n*Total:* _${this.carrinho.getValorTotal}_\n`;
 
-          this.pedidoMontado = encodeURIComponent(this.pedidoMontado)
+          this.pedidoMontado = encodeURIComponent(this.pedidoMontado);
 
-          carrinho.pedidos = []
+          carrinho.pedidos = [];
 
-          window.location.href = `https://wa.me/5588994634270?text=${this.pedidoMontado}`
+          window.location.href = `https://wa.me/5588994634270?text=${this.pedidoMontado}`;
         } else {
           toast.warning("✏️ Preencha todos os campos", {
             timeout: 2000,
             position: "top-right",
             icon: false,
             showCloseButtonOnHover: true,
-          })
+          });
         }
       }
 
@@ -203,33 +234,33 @@ export default {
           this.carrinho.dadosPessoais.numero != "" &&
           this.carrinho.dadosPessoais.formaDePagamento != ""
         ) {
-          this.pedidoMontado += `\n*Nome:*\n - ${this.carrinho.dadosPessoais.nome}\n`
-          this.pedidoMontado += `\n*Rua:*\n - ${this.carrinho.dadosPessoais.rua}\n`
-          this.pedidoMontado += `\n*Bairro:*\n - ${this.carrinho.dadosPessoais.bairro}\n`
-          this.pedidoMontado += `\n*Número:*\n - ${this.carrinho.dadosPessoais.numero}\n`
-          this.pedidoMontado += `\n*Ponto de referência:*\n - ${this.carrinho.dadosPessoais.referencia}\n`
-          this.pedidoMontado += `\n*Forma de entrega:*\n - ${this.carrinho.dadosPessoais.formaDeEntrega}\n`
-          this.pedidoMontado += `\n*Forma de Pagamento:*\n - ${this.carrinho.dadosPessoais.formaDePagamento}\n`
+          this.pedidoMontado += `\n*Nome:*\n - ${this.carrinho.dadosPessoais.nome}\n`;
+          this.pedidoMontado += `\n*Rua:*\n - ${this.carrinho.dadosPessoais.rua}\n`;
+          this.pedidoMontado += `\n*Bairro:*\n - ${this.carrinho.dadosPessoais.bairro}\n`;
+          this.pedidoMontado += `\n*Número:*\n - ${this.carrinho.dadosPessoais.numero}\n`;
+          this.pedidoMontado += `\n*Ponto de referência:*\n - ${this.carrinho.dadosPessoais.referencia}\n`;
+          this.pedidoMontado += `\n*Forma de entrega:*\n - ${this.carrinho.dadosPessoais.formaDeEntrega}\n`;
+          this.pedidoMontado += `\n*Forma de Pagamento:*\n - ${this.carrinho.dadosPessoais.formaDePagamento}\n`;
           if (this.carrinho.dadosPessoais.formaDePagamento == "Dinheiro") {
-            this.pedidoMontado += `\n*Troco para:*\n - ${this.carrinho.dadosPessoais.troco}\n`
+            this.pedidoMontado += `\n*Troco para:*\n - ${this.carrinho.dadosPessoais.troco}\n`;
           }
-          this.pedidoMontado += `\n${"-".repeat(30)}\n`
+          this.pedidoMontado += `\n${"-".repeat(30)}\n`;
           this.pedidoMontado += `\n*Total:* _${(
             Number(this.carrinho.getValorTotal) + 3
-          ).toFixed(2)}_\n`
+          ).toFixed(2)}_\n`;
 
-          this.pedidoMontado = encodeURIComponent(this.pedidoMontado)
+          this.pedidoMontado = encodeURIComponent(this.pedidoMontado);
 
-          carrinho.pedidos = []
+          carrinho.pedidos = [];
 
-          window.location.href = `https://wa.me/5588994634270?text=${this.pedidoMontado}`
+          window.location.href = `https://wa.me/5588994634270?text=${this.pedidoMontado}`;
         } else {
           toast.warning("✏️ Preencha todos os campos", {
             timeout: 2000,
             position: "top-right",
             icon: false,
             showCloseButtonOnHover: true,
-          })
+          });
         }
       }
     }
@@ -239,9 +270,9 @@ export default {
       finalizarPedido,
       apesoEscolhido,
       copyToClipboard,
-    }
+    };
   },
-}
+};
 </script>
 
 <template>
