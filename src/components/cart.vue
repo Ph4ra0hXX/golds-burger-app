@@ -18,7 +18,7 @@ export default {
 };
 </script>
 <template>
- <!-- <div v-if="routeName != 'checkout'">
+  <div v-if="routeName != 'checkout'">
     <router-link to="/checkout">
       <div>
         <a href="#" class="float2">
@@ -36,7 +36,7 @@ export default {
         </a>
       </div>
     </router-link>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>
