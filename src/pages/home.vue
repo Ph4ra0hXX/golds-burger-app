@@ -16,7 +16,7 @@ function isWednesdayOrThursday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
 
-  return dayOfWeek === 3;
+  return dayOfWeek === 3  || dayOfWeek === 4;
 }
   // || dayOfWeek === 4
 </script>
