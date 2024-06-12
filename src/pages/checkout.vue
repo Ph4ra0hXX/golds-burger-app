@@ -13,12 +13,15 @@ export default {
     const burgers = ref([...carrinho.burgers]);
     const macarronadas = ref([...carrinho.macarronadas]);
     const batatas = ref([...carrinho.batatas]);
+    const combos = ref([...carrinho.combos]);
+
     const bebidas = ref([...carrinho.bebidas]);
 
     const pedidos = ref([
       ...carrinho.burgers,
       ...carrinho.macarronadas,
       ...carrinho.batatas,
+      ...carrinho.combos,
       ...carrinho.sobremesas,
       ...carrinho.bebidas,
     ]);
@@ -140,6 +143,31 @@ export default {
 
     /*-------------------------------------------*/
 
+    function removerPedidoCombo(index) {
+      this.carrinho.combos.splice(index, 1);
+      this.notificacaoRemoverPedido();
+    }
+
+    function removerItemCombo(pedidoIndex, secao, itemIndex) {
+      this.carrinho.combos[pedidoIndex][secao].splice(itemIndex, 1);
+    }
+
+    function aumentarQuantidadeCombo(pedidoIndex, secao, itemIndex) {
+      this.carrinho.combos[pedidoIndex][secao][itemIndex].quantidade++;
+    }
+
+    function diminuirQuantidadeCombo(pedidoIndex, secao, itemIndex) {
+      if (this.carrinho.combos[pedidoIndex][secao][itemIndex].quantidade > 0) {
+        this.carrinho.combos[pedidoIndex][secao][itemIndex].quantidade--;
+      }
+
+      this.carrinho.combos = removeObjetosSeQuantidadeZero(
+        this.carrinho.combos
+      );
+    }
+
+    /*-------------------------------------------*/
+
     function removerPedidoSobremesa(index) {
       this.carrinho.sobremesas.splice(index, 1);
       this.notificacaoRemoverPedido();
@@ -229,6 +257,10 @@ export default {
       removerItemSobremesa,
       aumentarQuantidadeSobremesa,
       diminuirQuantidadeSobremesa,
+      removerPedidoCombo,
+      removerItemCombo,
+      aumentarQuantidadeCombo,
+      diminuirQuantidadeCombo,
     };
   },
 };
@@ -395,6 +427,55 @@ export default {
         <br />
 
         <button id="butDelete" @click="removerPedidoBatata(pedidoIndex)">
+          Remover Pedido
+        </button>
+        <br />
+        <br />
+        <hr />
+      </div>
+      <div
+        id="pedidoFundo"
+        v-for="(pedido, pedidoIndex) in carrinho.combos"
+        :key="pedidoIndex"
+      >
+        <!-- <p id="posicaoPedido">Pedido N° {{ pedidoIndex + 1 }}</p>-->
+
+        <div v-for="(secaoItens, secao) in pedido" :key="secao">
+          <p v-for="(item, itemIndex) in secaoItens" :key="itemIndex">
+            <template v-if="item.quantidade > 0">
+              <div id="priceAndDiv">
+                <div id="priceAndName">
+                  <div>
+                    <span id="quantidadeDiv">{{ item.quantidade }}x</span>
+                    {{ item.nome }}
+                  </div>
+                </div>
+                <div>
+                  <button
+                    @click="
+                      aumentarQuantidadeCombo(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao1"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    @click="
+                      diminuirQuantidadeCombo(pedidoIndex, secao, itemIndex)
+                    "
+                    class="botao2"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </template>
+          </p>
+        </div>
+        <br />
+
+        <button id="butDelete" @click="removerPedidoCombo(pedidoIndex)">
           Remover Pedido
         </button>
         <br />

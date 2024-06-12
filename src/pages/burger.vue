@@ -1,18 +1,18 @@
 <script>
-import { ref, watch, onUpdated } from "vue"
-import { carrinhoStore } from "../store/produtos"
-import { useToast } from "vue-toastification"
-import router from "../router/index"
+import { ref, watch, onUpdated } from "vue";
+import { carrinhoStore } from "../store/produtos";
+import { useToast } from "vue-toastification";
+import router from "../router/index";
 
 export default {
   setup() {
-    const toast = useToast()
+    const toast = useToast();
 
-    const carrinho = carrinhoStore()
+    const carrinho = carrinhoStore();
 
     const Burger = ref({
       Pao: [
-        { nome: "Pão Árabe", preco: 3.0, quantidade: 0 },//
+        { nome: "Pão Árabe", preco: 3.0, quantidade: 0 },
         { nome: "Pão Bola", preco: 2.0, quantidade: 0 },
         { nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
       ],
@@ -46,35 +46,35 @@ export default {
         { nome: "Cebola", preco: 0.0, quantidade: 0 },
         { nome: "Cenoura Ralada", preco: 0.0, quantidade: 0 },
       ],
-    })
+    });
 
     function salvarPedido() {
-      console.log(Burger.value)
+      console.log(Burger.value);
 
-      carrinho.burgers.push(Burger.value)
+      carrinho.burgers.push(Burger.value);
 
-      router.push("/")
+      router.push("/");
 
       toast.success("Adicionado com sucesso!", {
         timeout: 2000,
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function voltar() {
-      router.push("/")
+      router.push("/");
     }
 
     function updateQuantities(selectedItem) {
       this.Burger.Pao.forEach((item) => {
         if (item === selectedItem) {
-          item.quantidade = 1
+          item.quantidade = 1;
         } else {
-          item.quantidade = 0
+          item.quantidade = 0;
         }
-      })
+      });
     }
 
     return {
@@ -82,9 +82,9 @@ export default {
       salvarPedido,
       updateQuantities,
       voltar,
-    }
+    };
   },
-}
+};
 </script>
 
 <template>

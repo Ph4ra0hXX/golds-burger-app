@@ -7,6 +7,7 @@ import Entrega from "../pages/entrega.vue";
 import Macarronada from "../pages/macarronada.vue";
 import Batata from "../pages/batata.vue";
 import Sobremesas from "../pages/sobremesas.vue";
+import Combo from "../pages/combo.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/burger",
     name: "Burger",
     component: Burger,
+  },
+  {
+    path: "/combo",
+    name: "Combo",
+    component: Combo,
   },
   {
     path: "/macarronada",

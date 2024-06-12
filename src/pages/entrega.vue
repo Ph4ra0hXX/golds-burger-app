@@ -198,6 +198,41 @@ export default {
         this.pedidoMontado += `\n${"-".repeat(30)}\n\n`;
       }
 
+      var dados5 = this.carrinho.combos;
+
+      if (dados5.length > 0) {
+        this.pedidoMontado += "\n*Combo*\n\n";
+
+        const resultado5 = dados5
+          .map((categoria) => {
+            return Object.keys(categoria)
+              .map((chave) => {
+                const itensComQuantidade = categoria[chave].filter(
+                  (item) => item.quantidade > 0
+                );
+
+                if (itensComQuantidade.length > 0) {
+                  const categoriaFormatada = `${itensComQuantidade
+                    .map((item) => ` *${item.quantidade}x* ${item.nome}`)
+                    .join("\n")}`;
+                  return `${categoriaFormatada}\n`;
+                } else {
+                  return null;
+                }
+              })
+              .filter((categoria) => categoria !== null)
+              .join("\n");
+          })
+          .filter((categoria) => categoria !== null)
+          .join(`\n${"-".repeat(30)}\n\n`);
+
+        this.pedidoMontado += resultado5;
+      }
+
+      if (dados5.length > 0) {
+        this.pedidoMontado += `\n${"-".repeat(30)}\n\n`;
+      }
+
       this.pedidoMontado += `\n*Observações:*\n - ${this.carrinho.observacao}\n`;
 
       if (this.carrinho.dadosPessoais.formaDeEntrega == "Vou buscar") {
