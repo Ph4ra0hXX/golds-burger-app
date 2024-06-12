@@ -6,6 +6,7 @@ export const carrinhoStore = defineStore("carrinho", {
       burgers: [],
       macarronadas: [],
       batatas: [],
+      combos: [],
       bebidas: [],
       sobremesas: [],
       dadosPessoais: {
@@ -32,6 +33,7 @@ export const carrinhoStore = defineStore("carrinho", {
         ...this.burgers,
         ...this.macarronadas,
         ...this.batatas,
+        ...this.combos,
         ...this.sobremesas,
         ...this.bebidas,
       ];
@@ -51,6 +53,7 @@ export const carrinhoStore = defineStore("carrinho", {
         this.burgers.length +
         this.macarronadas.length +
         this.batatas.length +
+        this.combos.length +
         this.sobremesas.length +
         this.bebidas.length
       );
@@ -62,6 +65,13 @@ export const produtosStore = defineStore("produto", {
   state: () => {
     return {
       cardDataStore: [
+        {
+          id: 8,
+          nome: "COMBO",
+          img: "food6.webp",
+          descricao: "Combo Completo",
+          url: "/combo",
+        },
         {
           id: 1,
           nome: "BURGER",
@@ -99,6 +109,13 @@ export const produtosStore2 = defineStore("produto2", {
   state: () => {
     return {
       cardDataStore: [
+        {
+          id: 8,
+          nome: "COMBO",
+          img: "food6.webp",
+          descricao: "Combo Completo",
+          url: "/combo",
+        },
         {
           id: 1,
           nome: "BURGER",
