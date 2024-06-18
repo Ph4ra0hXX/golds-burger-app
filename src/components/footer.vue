@@ -15,11 +15,11 @@
     <br />
     <br />
     <a
-      href="https://api.whatsapp.com/send?phone=5588993788451"
+      href="https://api.whatsapp.com/send?phone=5588994634270"
       class="fab fa-whatsapp"
     ></a>
-    <a href="https://api.whatsapp.com/send?phone=5588993788451"
-      >(88)993788451</a
+    <a href="https://api.whatsapp.com/send?phone=5588994634270"
+      >(88) 9 9463-4270</a
     >
     <br />
     <br />
