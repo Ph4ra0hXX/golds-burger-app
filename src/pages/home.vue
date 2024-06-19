@@ -16,14 +16,14 @@ function isWednesdayOrThursday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
 
-  return dayOfWeek === 30 || dayOfWeek === 40;
+  return dayOfWeek === 3 || dayOfWeek === 4;
 }
 // || dayOfWeek === 4
 </script>
 
 <template>
- <!-- <h2 id="fechados">No momento estamos fechados!</h2> -->
-   <Card
+  <!-- <h2 id="fechados">No momento estamos fechados!</h2> -->
+  <Card
     v-if="isWednesdayOrThursday()"
     v-for="data2 in cardData2"
     :data="data2"
