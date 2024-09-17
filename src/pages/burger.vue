@@ -17,9 +17,13 @@ export default {
         { nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
       ],
       Queijo: [
-        { nome: "Cheddar", preco: 2.0, quantidade: 0 },
+        { nome: "Cheddar", preco: 4.0, quantidade: 0 },
         { nome: "Mussarela", preco: 2.0, quantidade: 0 },
         { nome: "Coalho", preco: 2.0, quantidade: 0 },
+      ],
+      Cremes: [
+        { nome: "Creme de Cheddar", preco: 2.0, quantidade: 0 },
+        { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
       ],
       Carne: [
         { nome: "Frango Desfiado", preco: 3.0, quantidade: 0 },
@@ -144,6 +148,30 @@ export default {
         <br />
       </div>
 
+      <div class="dotted-line">
+        <hr />
+        <span id="textDividers">Cremes</span>
+        <hr />
+      </div>
+      <div v-for="(item, index) in Burger.Cremes" :key="item">
+        <button class="botao1" @click="item.quantidade++">+</button>
+
+        <button
+          v-if="item.quantidade > 0"
+          class="botao2"
+          @click="item.quantidade--"
+        >
+          -
+        </button>
+
+        <label style="pointer-events: none" id="nomeItem" for="adicional"
+          ><span id="quantidadeDiv">{{ item.quantidade }}x</span>
+          {{ item.nome }}</label
+        >
+        <label id="preco">R$: {{ item.preco.toFixed(2) }}</label>
+        <p id="itens"></p>
+        <br />
+      </div>
       <!---------------------------->
 
       <div class="dotted-line">
