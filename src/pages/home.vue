@@ -22,8 +22,10 @@ function isWednesdayOrThursday() {
 </script>
 
 <template>
-   <h2 id="fechados">No momento estamos fechados!</h2> 
- <!-- <Card
+     <h2 id="fechados">Estamos fechados temporariamente devido à falta de energia. Agradecemos a compreensão.</h2> 
+ <!--  <h2 id="fechados">No momento estamos fechados!</h2> 
+
+  <Card
     v-if="isWednesdayOrThursday()"
     v-for="data2 in cardData2"
     :data="data2"
