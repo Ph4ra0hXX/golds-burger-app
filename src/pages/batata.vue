@@ -11,7 +11,7 @@ export default {
     const carrinho = carrinhoStore();
 
     const Batata = ref({
-      batataFrita: [{ nome: "Batata 300g", preco: 7.0, quantidade: 0 }],
+      batataFrita: [{ nome: "Batata 300g", preco: 8.0, quantidade: 0 }],
     });
 
     function salvarPedido() {
