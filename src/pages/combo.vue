@@ -13,11 +13,18 @@ export default {
     const Batata = ref({
       batataFrita: [
         {
-          nome: "Combo",
-          preco: 50.0,
+          nome: "Coração Golds",
+          preco: 18.0,
           quantidade: 0,
           descricao:
-            "2 SANDUÍCHES (PÃO BRIOCHE, HAMBÚRGUER CASEIRO, QUEIJO CHEDDAR, BACON, BARBECUE) + 1 BATATA FRITA + 1 ANÉIS DE CEBOLA + 1 REFRIGERANTE DE 1L).",
+            "Pão Baguete 60g, 100g de coração de galinha, creme de queijo mussarela, cebola caramelizada, cream cheese, maionese Golds e alface.",
+        },
+        {
+          nome: "Camarão Golds",
+          preco: 18.0,
+          quantidade: 0,
+          descricao:
+            "Pão Baguete 60g, 100g de camarão no alho, creme de queijo mussarela, cebola caramelizada, cream cheese, maionese Golds e alface.",
         },
       ],
     });
@@ -53,7 +60,7 @@ export default {
     <div id="listar">
       <div class="dotted-line">
         <hr />
-        <span id="textDividers">Combo</span>
+        <span id="textDividers">Super</span>
         <hr />
       </div>
       <div v-for="(item, index) in Batata.batataFrita" :key="item">

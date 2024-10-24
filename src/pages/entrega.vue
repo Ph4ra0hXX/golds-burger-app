@@ -201,7 +201,7 @@ export default {
       var dados5 = this.carrinho.combos;
 
       if (dados5.length > 0) {
-        this.pedidoMontado += "\n*Combo*\n\n";
+        this.pedidoMontado += "\n*Super*\n\n";
 
         const resultado5 = dados5
           .map((categoria) => {
