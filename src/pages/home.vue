@@ -3,36 +3,49 @@ import { ref } from "vue";
 
 import Card from "../components/card.vue";
 
-import { produtosStore, produtosStore2 } from "../store/produtos";
+import {
+  produtosStore,
+  produtosStore2,
+  produtosStore3,
+} from "../store/produtos";
 
 const store = produtosStore();
 
 const store2 = produtosStore2();
 
-const cardData = ref(store.cardDataStore);
-const cardData2 = ref(store2.cardDataStore);
+const store3 = produtosStore3();
 
-function isWednesdayOrThursday() {
+const diaDeMacarronada = ref(store.cardDataStore);
+const diaDeSuper = ref(store2.cardDataStore);
+const nenhum = ref(store3.cardDataStore);
+
+function isWednesday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
-
-  return dayOfWeek === 3 || dayOfWeek === 4;
+  return dayOfWeek === 3; // 3 representa quarta-feira
 }
-// || dayOfWeek === 4
+
+function isThursday() {
+  const currentDate = new Date();
+  const dayOfWeek = currentDate.getDay();
+  return dayOfWeek === 4; // 4 representa quinta-feira
+}
+
+function isNotWednesdayOrThursday() {
+  const currentDate = new Date();
+  const dayOfWeek = currentDate.getDay();
+  return dayOfWeek !== 3 && dayOfWeek !== 4;
+}
 </script>
 
 <template>
+  <!-- <h2 id="fechados">No momento estamos fechados!</h2> 
+     <h2 id="fechados">Estamos fechados temporariamente devido à falta de energia. Agradecemos a compreensão.</h2>  -->
+  <Card v-if="isWednesday()" v-for="data in diaDeMacarronada" :data="data" />
 
-    <!-- <h2 id="fechados">No momento estamos fechados!</h2> 
-     <h2 id="fechados">Estamos fechados temporariamente devido à falta de energia. Agradecemos a compreensão.</h2>  --> 
+  <Card v-if="isThursday()" v-for="data in diaDeSuper" :data="data" />
 
-
-  <Card
-    v-if="isWednesdayOrThursday()"
-    v-for="data2 in cardData2"
-    :data="data2"
-  />
-  <Card v-if="!isWednesdayOrThursday()" v-for="data in cardData" :data="data" />
+  <Card v-if="isNotWednesdayOrThursday()" v-for="data in nenhum" :data="data" />
 </template>
 
 <style>

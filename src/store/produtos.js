@@ -65,13 +65,57 @@ export const produtosStore = defineStore("produto", {
   state: () => {
     return {
       cardDataStore: [
-       /* {
+        {
+          id: 1,
+          nome: "BURGER",
+          img: "food1.webp",
+          descricao: "Monte do seu jeito",
+          url: "/burger",
+        },
+        {
+          id: 2,
+          nome: "MACARONADA",
+          img: "food2.webp",
+          descricao: "Monte do seu jeito",
+          url: "/macarronada",
+        },
+        {
+          id: 6,
+          nome: "BATATA FRITA",
+          img: "food3.webp",
+          descricao: "No ponto certo",
+          url: "/batata",
+        },
+        {
+          id: 7,
+          nome: "SOBREMESAS",
+          img: "food5.webp",
+          descricao: "Para adoçar",
+          url: "/sobremesas",
+        },
+        {
+          id: 4,
+          nome: "BEBIDAS",
+          img: "food4.webp",
+          descricao: "Refrescantes",
+          url: "/bebidas",
+        },
+      ],
+    };
+  },
+});
+
+export const produtosStore2 = defineStore("produto2", {
+  state: () => {
+    return {
+      cardDataStore: [
+        {
           id: 8,
           nome: "SUPER",
           img: "food6.webp",
           descricao: "Completo",
           url: "/combo",
-        },*/
+        },
         {
           id: 1,
           nome: "BURGER",
@@ -105,17 +149,10 @@ export const produtosStore = defineStore("produto", {
   },
 });
 
-export const produtosStore2 = defineStore("produto2", {
+export const produtosStore3 = defineStore("produto3", {
   state: () => {
     return {
       cardDataStore: [
-       /* {
-          id: 8,
-          nome: "SUPER",
-          img: "food6.webp",
-          descricao: "Completo",
-          url: "/combo",
-        },*/
         {
           id: 1,
           nome: "BURGER",
@@ -123,13 +160,6 @@ export const produtosStore2 = defineStore("produto2", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-        {
-          id: 2,
-          nome: "MACARONADA",
-          img: "food2.webp",
-          descricao: "Monte do seu jeito",
-          url: "/macarronada",
-        }, 
         {
           id: 6,
           nome: "BATATA FRITA",
