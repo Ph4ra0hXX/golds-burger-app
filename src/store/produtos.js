@@ -153,6 +153,13 @@ export const produtosStore3 = defineStore("produto3", {
   state: () => {
     return {
       cardDataStore: [
+          {
+          id: 8,
+          nome: "SUPER",
+          img: "food6.webp",
+          descricao: "Completo",
+          url: "/combo",
+        },
         {
           id: 1,
           nome: "BURGER",
