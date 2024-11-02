@@ -152,7 +152,7 @@ export const produtosStore2 = defineStore("produto2", {
 export const produtosStore3 = defineStore("produto3", {
   state: () => {
     return {
-      cardDataStore: {
+      cardDataStore: [
         {
           id: 1,
           nome: "BURGER",
