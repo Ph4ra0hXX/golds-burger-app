@@ -28,19 +28,24 @@ function isWednesday() {
 function isThursday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
-  return dayOfWeek === 4; // 4 representa quinta-feira
+  return dayOfWeek === 4 || dayOfWeek === 5; // 4 representa quinta-feira
 }
 
 function isNotWednesdayOrThursday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
-  return dayOfWeek !== 3 && dayOfWeek !== 4;
+  return dayOfWeek == 2 || dayOfWeek == 6 || dayOfWeek == 0;
+}
+
+function isSegunda() {
+  const currentDate = new Date();
+  const dayOfWeek = currentDate.getDay();
+  return dayOfWeek === 1;
 }
 </script>
 
 <template>
-  <!-- <h2 id="fechados">No momento estamos fechados!</h2> 
-     <h2 id="fechados">Estamos fechados temporariamente devido à falta de energia. Agradecemos a compreensão.</h2>  -->
+  <h2 v-if="isSegunda()" id="fechados">No momento estamos fechados!</h2>
   <Card v-if="isWednesday()" v-for="data in diaDeMacarronada" :data="data" />
 
   <Card v-if="isThursday()" v-for="data in diaDeSuper" :data="data" />
