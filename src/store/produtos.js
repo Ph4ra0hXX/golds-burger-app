@@ -65,13 +65,13 @@ export const produtosStore = defineStore("produto", {
   state: () => {
     return {
       cardDataStore: [
-       /* {
+        {
           id: 1,
           nome: "BURGER",
           img: "food1.webp",
           descricao: "Monte do seu jeito",
           url: "/burger",
-        },*/
+        },
         {
           id: 2,
           nome: "MACARONADA",
