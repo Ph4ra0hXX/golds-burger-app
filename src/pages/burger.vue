@@ -34,7 +34,7 @@ export default {
         { nome: "Linguiça Suína", preco: 3.0, quantidade: 0 },
       ],
       Complemento: [
-        { nome: "Bacon", preco: 2.0, quantidade: 0 },
+        //{ nome: "Bacon", preco: 2.0, quantidade: 0 },
         { nome: "Ovo", preco: 2.0, quantidade: 0 },
         { nome: "Cebola Caramelizada", preco: 1.0, quantidade: 0 },
         { nome: "Maionese Golds", preco: 0.0, quantidade: 0 },
