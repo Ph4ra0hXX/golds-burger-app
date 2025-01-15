@@ -28,10 +28,10 @@ export default {
         { nome: "Água 500ml", quantidade: 0, preco: 2.0 },
         { nome: "Água com Gás 500ml", quantidade: 0, preco: 3.0 },
         { nome: "Água Sprite 500ml", quantidade: 0, preco: 4.5 },
-        { nome: "Suco Goiaba", quantidade: 0, preco: 4.0 },
+       /* { nome: "Suco Goiaba", quantidade: 0, preco: 4.0 },
         { nome: "Suco Cajá", quantidade: 0, preco: 4.0 },
         { nome: "Suco Acerola", quantidade: 0, preco: 4.0 },
-        { nome: "Suco Maracujá", quantidade: 0, preco: 5.0 },
+        { nome: "Suco Maracujá", quantidade: 0, preco: 5.0 },*/
         { nome: "Cerveja Heineken", quantidade: 0, preco: 9.0 },
         { nome: "Cerveja Budweiser", quantidade: 0, preco: 8.0 },
       ],
