@@ -13,8 +13,12 @@ export default {
     const Batata = ref({
       batataFrita: [
         { nome: "Batata 300g", preco: 8.0, quantidade: 0 },
-        { nome: "Bolinha de Carne ou Frango", preco: 18.0, quantidade: 0 },
-        { nome: "Bolinha de Camarão", preco: 18.0, quantidade: 0 },
+        {
+          nome: "Bolinha de Carne ou Frango (12 Porções)",
+          preco: 18.0,
+          quantidade: 0,
+        },
+        { nome: "Bolinha de Camarão (12 Porções)", preco: 18.0, quantidade: 0 },
       ],
     });
 
