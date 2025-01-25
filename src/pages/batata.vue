@@ -14,7 +14,12 @@ export default {
       batataFrita: [
         { nome: "Batata 300g", preco: 8.0, quantidade: 0 },
         {
-          nome: "Bolinha de Carne ou Frango (12 Porções)",
+          nome: "Bolinha de Frango (12 Porções)",
+          preco: 18.0,
+          quantidade: 0,
+        },
+        {
+          nome: "Bolinha de Carne (12 Porções)",
           preco: 18.0,
           quantidade: 0,
         },
