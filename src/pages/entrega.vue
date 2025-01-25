@@ -104,7 +104,7 @@ export default {
       var dados3 = this.carrinho.batatas;
 
       if (dados3.length > 0) {
-        this.pedidoMontado += "\n*Batata Frita*\n\n";
+        this.pedidoMontado += "\n*Porções*\n\n";
 
         const resultado3 = dados3
           .map((categoria) => {

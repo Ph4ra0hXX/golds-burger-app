@@ -81,7 +81,7 @@ export const produtosStore = defineStore("produto", {
         },
         {
           id: 6,
-          nome: "BATATA FRITA",
+          nome: "PORÇÕES",
           img: "food3.webp",
           descricao: "No ponto certo",
           url: "/batata",
@@ -125,7 +125,7 @@ export const produtosStore2 = defineStore("produto2", {
         },
         {
           id: 6,
-          nome: "BATATA FRITA",
+          nome: "PORÇÕES",
           img: "food3.webp",
           descricao: "No ponto certo",
           url: "/batata",
@@ -162,7 +162,7 @@ export const produtosStore3 = defineStore("produto3", {
         },
         {
           id: 6,
-          nome: "BATATA FRITA",
+          nome: "PORÇÕES",
           img: "food3.webp",
           descricao: "No ponto certo",
           url: "/batata",

@@ -11,7 +11,11 @@ export default {
     const carrinho = carrinhoStore();
 
     const Batata = ref({
-      batataFrita: [{ nome: "Batata 300g", preco: 8.0, quantidade: 0 }],
+      batataFrita: [
+        { nome: "Batata 300g", preco: 8.0, quantidade: 0 },
+        { nome: "Bolinha de Carne ou Frango", preco: 18.0, quantidade: 0 },
+        { nome: "Bolinha de Camarão", preco: 18.0, quantidade: 0 },
+      ],
     });
 
     function salvarPedido() {
@@ -45,7 +49,7 @@ export default {
     <div id="listar">
       <div class="dotted-line">
         <hr />
-        <span id="textDividers">Batata Frita</span>
+        <span id="textDividers">Porções</span>
         <hr />
       </div>
       <div v-for="(item, index) in Batata.batataFrita" :key="item">
