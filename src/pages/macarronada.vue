@@ -1,14 +1,14 @@
 <script>
-import { ref, watch, onUpdated } from "vue"
-import { carrinhoStore } from "../store/produtos"
-import { useToast } from "vue-toastification"
-import router from "../router/index"
+import { ref, watch, onUpdated } from "vue";
+import { carrinhoStore } from "../store/produtos";
+import { useToast } from "vue-toastification";
+import router from "../router/index";
 
 export default {
   setup() {
-    const toast = useToast()
+    const toast = useToast();
 
-    const carrinho = carrinhoStore()
+    const carrinho = carrinhoStore();
 
     const Macarronada = ref({
       macarrao: [{ nome: "Macarrão Talharim", quantidade: 1, preco: 15 }],
@@ -16,51 +16,65 @@ export default {
         { nome: "Carne Moída", quantidade: 0, preco: 0 },
         { nome: "Frango", quantidade: 0, preco: 0 },
       ],
-      ingredientes: [
+      molhos: [
         { nome: "Molho Rosê", quantidade: 0, preco: 0 },
+        { nome: "Molho Branco", quantidade: 0, preco: 0 },
+      ],
+      ingredientes: [
         { nome: "Bacon", quantidade: 0, preco: 0 },
         { nome: "Mussarela", quantidade: 0, preco: 0 },
         //{ nome: "Azeitona", quantidade: 0, preco: 0 },
         { nome: "Milho Verde", quantidade: 0, preco: 0 },
         { nome: "Orégano", quantidade: 0, preco: 0 },
       ],
-    })
+    });
 
     function salvarPedido() {
-      carrinho.macarronadas.push(Macarronada.value)
+      carrinho.macarronadas.push(Macarronada.value);
 
-      router.push("/")
+      router.push("/");
 
       toast.success("Adicionado com sucesso!", {
         timeout: 2000,
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function voltar() {
-      router.push("/")
+      router.push("/");
     }
 
     function updateQuantities(selectedItem) {
       this.Macarronada.carnes.forEach((item) => {
         if (item === selectedItem) {
-          item.quantidade = 1
+          item.quantidade = 1;
         } else {
-          item.quantidade = 0
+          item.quantidade = 0;
         }
-      })
+      });
+    }
+
+    function updateQuantitiesMolhos(selectedItem) {
+      this.Macarronada.molhos.forEach((item) => {
+        if (item === selectedItem) {
+          item.quantidade = 1;
+        } else {
+          item.quantidade = 0;
+        }
+      });
     }
 
     return {
       Macarronada,
       salvarPedido,
       updateQuantities,
+      updateQuantitiesMolhos,
       voltar,
-    }
+    };
   },
-}
+};
 </script>
 
 <template>
@@ -77,7 +91,6 @@ export default {
         >
         <label id="preco">R$: {{ item.preco.toFixed(2) }}</label>
         <p id="itens"></p>
-        <br />
       </div>
       <div class="dotted-line">
         <hr />
@@ -88,6 +101,35 @@ export default {
         <button
           class="botao1"
           @click="item.quantidade++, updateQuantities(item)"
+        >
+          +
+        </button>
+
+        <button
+          v-if="item.quantidade > 0"
+          class="botao2"
+          @click="item.quantidade--"
+        >
+          -
+        </button>
+
+        <label style="pointer-events: none" id="nomeItem" for="adicional"
+          ><span id="quantidadeDiv">{{ item.quantidade }}x</span>
+          {{ item.nome }}</label
+        >
+        <label id="preco">R$: {{ item.preco.toFixed(2) }}</label>
+        <p id="itens"></p>
+        <br />
+      </div>
+      <div class="dotted-line">
+        <hr />
+        <span id="textDividers">Molhos</span>
+        <hr />
+      </div>
+      <div v-for="(item, index) in Macarronada.molhos" :key="item">
+        <button
+          class="botao1"
+          @click="item.quantidade++, updateQuantitiesMolhos(item)"
         >
           +
         </button>
