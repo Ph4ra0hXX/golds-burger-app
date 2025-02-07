@@ -15,17 +15,17 @@ export default {
         { nome: "Batata 300g", preco: 8.0, quantidade: 0 },
         {
           nome: "Bolinha de Frango (12 unidades)",
-          preco: 18.0,
+          preco: 20.0,
           quantidade: 0,
         },
         {
           nome: "Bolinha de Carne (12 unidades)",
-          preco: 18.0,
+          preco: 20.0,
           quantidade: 0,
         },
         {
-          nome: "Bolinha de Camarão (12 unidades)",
-          preco: 18.0,
+          nome: "Bolinha de Queijo (12 unidades)",
+          preco: 20.0,
           quantidade: 0,
         },
       ],
