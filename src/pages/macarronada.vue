@@ -11,10 +11,11 @@ export default {
     const carrinho = carrinhoStore();
 
     const Macarronada = ref({
-      macarrao: [{ nome: "Macarrão Talharim", quantidade: 1, preco: 15 }],
+      macarrao: [{ nome: "Macarrão Talharim", quantidade: 1, preco: 0 }],
       carnes: [
-        { nome: "Carne Moída", quantidade: 0, preco: 0 },
-        { nome: "Frango", quantidade: 0, preco: 0 },
+        { nome: "Carne Moída", quantidade: 0, preco: 17 },
+        { nome: "Frango", quantidade: 0, preco: 17 },
+        { nome: "Camarão", quantidade: 0, preco: 20 },
       ],
       molhos: [
         { nome: "Molho Rosê", quantidade: 0, preco: 0 },
