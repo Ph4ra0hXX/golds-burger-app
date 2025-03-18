@@ -12,8 +12,8 @@ export default {
 
     const Sobremesas = ref({
       tipos: [
-        { nome: "Pudim 120G", quantidade: 0, preco: 6.0 },
-        { nome: "Torta de abacaxi 120G", quantidade: 0, preco: 6.0 },
+        { nome: "Pudim 120G", quantidade: 0, preco: 7.0 },
+        { nome: "Torta de abacaxi 120G", quantidade: 0, preco: 7.0 },
       ],
     });
 
