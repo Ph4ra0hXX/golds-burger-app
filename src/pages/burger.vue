@@ -18,7 +18,7 @@ export default {
       ],
       Queijo: [
         { nome: "Cheddar", preco: 4.0, quantidade: 0 },
-        { nome: "🟢Mussarela", preco: 3.0, quantidade: 0 },
+        { nome: "Mussarela", preco: 3.0, quantidade: 0 },
         { nome: "Coalho", preco: 2.0, quantidade: 0 },
       ],
       Cremes: [
@@ -26,15 +26,15 @@ export default {
         //{ nome: "Cream cheese", preco: 3.0, quantidade: 0 },
       ],
       Carne: [
-        { nome: "🟢Frango Desfiado", preco: 4.0, quantidade: 0 },
+        { nome: "Frango Desfiado", preco: 4.0, quantidade: 0 },
         { nome: "Hambúrguer Caseiro", preco: 6.0, quantidade: 0 },
-        { nome: "🟢Carne de Sol desfiada", preco: 5.0, quantidade: 0 },
+        { nome: "Carne de Sol desfiada", preco: 5.0, quantidade: 0 },
         { nome: "Hambúrguer", preco: 2.0, quantidade: 0 },
-        { nome: "Filé de frango🟢", preco: 4.0, quantidade: 0 },
+        { nome: "Filé de frango", preco: 4.0, quantidade: 0 },
         { nome: "Linguiça Suína", preco: 3.0, quantidade: 0 },
       ],
       Complemento: [
-        { nome: "🟢Bacon", preco: 3.0, quantidade: 0 },
+        { nome: "Bacon", preco: 3.0, quantidade: 0 },
         { nome: "Ovo", preco: 2.0, quantidade: 0 },
         { nome: "Cebola Caramelizada", preco: 1.0, quantidade: 0 },
         { nome: "Maionese Golds", preco: 0.0, quantidade: 0 },
