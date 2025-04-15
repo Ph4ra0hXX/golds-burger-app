@@ -72,13 +72,13 @@ export const produtosStore = defineStore("produto", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-    /*  {
+        {
           id: 2,
-          nome: "MACARONADA",
+          nome: "MACARRONADA",
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        },*/
+        },
         {
           id: 6,
           nome: "PORÇÕES",
@@ -109,7 +109,7 @@ export const produtosStore2 = defineStore("produto2", {
   state: () => {
     return {
       cardDataStore: [
-         /*{
+        /*{
           id: 8,
           nome: "SUPER",
           img: "food6.webp",
@@ -123,13 +123,13 @@ export const produtosStore2 = defineStore("produto2", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-       /* {
+        {
           id: 2,
-          nome: "MACARONADA",
+          nome: "MACARRONADA",
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        }, */
+        },
         {
           id: 6,
           nome: "PORÇÕES",
