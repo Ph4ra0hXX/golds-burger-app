@@ -23,11 +23,11 @@ export default {
       ],
       Cremes: [
         { nome: "Creme de Cheddar", preco: 2.0, quantidade: 0 },
-        //{ nome: "Cream cheese", preco: 3.0, quantidade: 0 },
+        { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
       ],
       Carne: [
         { nome: "Frango Desfiado", preco: 4.0, quantidade: 0 },
-        { nome: "Hambúrguer Caseiro", preco: 6.0, quantidade: 0 },
+        //{ nome: "Hambúrguer Caseiro", preco: 6.0, quantidade: 0 },
         { nome: "Carne de Sol desfiada", preco: 5.0, quantidade: 0 },
         { nome: "Hambúrguer", preco: 2.0, quantidade: 0 },
         { nome: "Filé de frango", preco: 4.0, quantidade: 0 },
