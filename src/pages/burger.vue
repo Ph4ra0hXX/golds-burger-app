@@ -18,7 +18,7 @@ export default {
       ],
       Queijo: [
         { nome: "Cheddar", preco: 4.0, quantidade: 0 },
-        { nome: "Mussarela", preco: 3.0, quantidade: 0 },
+       // { nome: "Mussarela", preco: 3.0, quantidade: 0 },
         { nome: "Coalho", preco: 2.0, quantidade: 0 },
       ],
       Cremes: [
