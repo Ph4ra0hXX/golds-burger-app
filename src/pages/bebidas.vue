@@ -20,7 +20,7 @@ export default {
         { nome: "Coca Lata", quantidade: 0, preco: 5.0 },
         { nome: "Sprite Zero Lata", quantidade: 0, preco: 5.0 },
         { nome: "Fanta Caju Lata", quantidade: 0, preco: 5.0 },
-        //{ nome: "Coca Zero Lata", quantidade: 0, preco: 5.0 },
+        { nome: "Coca Zero Lata", quantidade: 0, preco: 5.0 },
         { nome: "Guaraná Lata", quantidade: 0, preco: 5.0 },
         { nome: "Laranja Lata", quantidade: 0, preco: 5.0 },
         { nome: "Uva Lata", quantidade: 0, preco: 5.0 },
