@@ -1,4 +1,4 @@
-<script>
+//<script>
 import { ref, watch, onUpdated } from "vue"
 import { carrinhoStore } from "../store/produtos"
 import { useToast } from "vue-toastification"
@@ -13,16 +13,16 @@ export default {
     const Bebidas = ref({
       tipos: [
         { nome: "Coca Litro", quantidade: 0, preco: 9.0 },
-        { nome: "Guaraná Litro", quantidade: 0, preco: 8.0 },
+        // { nome: "Guaraná Litro", quantidade: 0, preco: 8.0 },
         { nome: "Cajuina Litro", quantidade: 0, preco: 9.0 },
         { nome: "Coca Zero Litro", quantidade: 0, preco: 9.0 },
-        { nome: "Coca 600ml", quantidade: 0, preco: 7.0 },
+       // { nome: "Coca 600ml", quantidade: 0, preco: 7.0 },
         { nome: "Coca Lata", quantidade: 0, preco: 5.0 },
         { nome: "Sprite Zero Lata", quantidade: 0, preco: 5.0 },
         { nome: "Cajuína Zero Lata", quantidade: 0, preco: 5.0 },
         { nome: "Fanta Caju Lata", quantidade: 0, preco: 5.0 },
         { nome: "Coca Zero Lata", quantidade: 0, preco: 5.0 },
-        { nome: "Guaraná Lata", quantidade: 0, preco: 5.0 },
+       // { nome: "Guaraná Lata", quantidade: 0, preco: 5.0 },
         { nome: "Laranja Lata", quantidade: 0, preco: 5.0 },
         { nome: "Uva Lata", quantidade: 0, preco: 5.0 },
         { nome: "São Geraldo Lata", quantidade: 0, preco: 5.0 },
