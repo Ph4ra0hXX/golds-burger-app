@@ -30,7 +30,7 @@ export default {
         { nome: "Hambúrguer Caseiro", preco: 6.0, quantidade: 0 },
         { nome: "Carne de Sol desfiada", preco: 5.0, quantidade: 0 },
         { nome: "Hambúrguer", preco: 2.0, quantidade: 0 },
-        { nome: "Filé de frango", preco: 4.0, quantidade: 0 },
+       // { nome: "Filé de frango", preco: 4.0, quantidade: 0 },
         { nome: "Linguiça Suína", preco: 3.0, quantidade: 0 },
       ],
       Complemento: [
