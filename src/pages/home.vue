@@ -45,12 +45,12 @@ function isSegunda() {
 </script>
 
 <template>
-<!-- <h2 id="fechados">No momento estamos fechados!</h2> -->
-<Card v-if="isWednesday()" v-for="data in diaDeMacarronada" :data="data" /> 
+ <h2 id="fechados">No momento estamos fechados!</h2>
+<!-- <Card v-if="isWednesday()" v-for="data in diaDeMacarronada" :data="data" /> 
 
  <Card v-if="isThursday()" v-for="data in diaDeSuper" :data="data" />
 
-  <Card v-if="isNotWednesdayOrThursday()" v-for="data in nenhum" :data="data" />
+  <Card v-if="isNotWednesdayOrThursday()" v-for="data in nenhum" :data="data" /> -->
 </template>
 
 <style>
