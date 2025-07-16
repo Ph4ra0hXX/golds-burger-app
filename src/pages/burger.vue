@@ -13,8 +13,8 @@ export default {
     const Burger = ref({
       Pao: [
         { nome: "Pão Árabe", preco: 3.0, quantidade: 0 },
-        //{ nome: "Pão Bola", preco: 2.0, quantidade: 0 },
-        //{ nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
+        { nome: "Pão Bola", preco: 2.0, quantidade: 0 },
+        { nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
       ],
       Queijo: [
         { nome: "Cheddar", preco: 4.0, quantidade: 0 },
@@ -41,7 +41,7 @@ export default {
         { nome: "Presunto", preco: 2.0, quantidade: 0 },
         { nome: "Calabresa", preco: 2.0, quantidade: 0 },
         { nome: "Batata Palha", preco: 1.0, quantidade: 0 },
-        //{ nome: "Molho Barbecue", preco: 1.0, quantidade: 0 },
+        { nome: "Molho Barbecue", preco: 1.0, quantidade: 0 },
         { nome: "Milho Verde", preco: 1.0, quantidade: 0 },
         { nome: "Maionese Golds (adicional)", preco: 0.5, quantidade: 0 },
       ],
