@@ -1,14 +1,14 @@
 <script>
-import { ref, watch, onUpdated } from "vue"
-import { carrinhoStore } from "../store/produtos"
-import { useToast } from "vue-toastification"
-import router from "../router/index"
+import { ref, watch, onUpdated } from "vue";
+import { carrinhoStore } from "../store/produtos";
+import { useToast } from "vue-toastification";
+import router from "../router/index";
 
 export default {
   setup() {
-    const toast = useToast()
+    const toast = useToast();
 
-    const carrinho = carrinhoStore()
+    const carrinho = carrinhoStore();
 
     const Bebidas = ref({
       tipos: [
@@ -16,7 +16,7 @@ export default {
         { nome: "Guaraná Litro", quantidade: 0, preco: 8.0 },
         { nome: "Cajuina Litro", quantidade: 0, preco: 9.0 },
         { nome: "Coca Zero Litro", quantidade: 0, preco: 9.0 },
-       { nome: "Coca 600ml", quantidade: 0, preco: 7.0 },
+        { nome: "Coca 600ml", quantidade: 0, preco: 7.0 },
         { nome: "Coca zero 600ml", quantidade: 0, preco: 7.0 },
         { nome: "Coca Lata", quantidade: 0, preco: 5.0 },
         { nome: "Sprite Zero Lata", quantidade: 0, preco: 5.0 },
@@ -28,6 +28,8 @@ export default {
         { nome: "Uva Lata", quantidade: 0, preco: 5.0 },
         { nome: "São Geraldo Lata", quantidade: 0, preco: 5.0 },
         { nome: "Schweppes Cítrus Lata", quantidade: 0, preco: 5.0 },
+        { nome: "Del Valle Kapo Uva", quantidade: 0, preco: 3.0 },
+        { nome: "Del Valle Kapo Laranja", quantidade: 0, preco: 4.0 },
         { nome: "Água 500ml", quantidade: 0, preco: 2.5 },
         { nome: "Água com Gás 500ml", quantidade: 0, preco: 3.0 },
         { nome: "Água Sprite 500ml", quantidade: 0, preco: 4.5 },
@@ -38,32 +40,32 @@ export default {
         { nome: "Cerveja Heineken", quantidade: 0, preco: 10.0 },
         { nome: "Cerveja Budweiser", quantidade: 0, preco: 9.0 },
       ],
-    })
+    });
 
     function salvarPedido() {
-      carrinho.bebidas.push(Bebidas.value)
+      carrinho.bebidas.push(Bebidas.value);
 
-      router.push("/")
+      router.push("/");
 
       toast.success("Adicionado com sucesso!", {
         timeout: 2000,
         position: "top-right",
         icon: false,
         showCloseButtonOnHover: true,
-      })
+      });
     }
 
     function voltar() {
-      router.push("/")
+      router.push("/");
     }
 
     return {
       Bebidas,
       salvarPedido,
       voltar,
-    }
+    };
   },
-}
+};
 </script>
 
 <template>
