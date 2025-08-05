@@ -28,6 +28,7 @@ export default {
         { nome: "Uva Lata", quantidade: 0, preco: 5.0 },
         { nome: "São Geraldo Lata", quantidade: 0, preco: 5.0 },
         { nome: "Schweppes Cítrus Lata", quantidade: 0, preco: 5.0 },
+        { nome: "Kuat Lata", quantidade: 0, preco: 5.0 },
         { nome: "Del Valle Kapo Uva", quantidade: 0, preco: 3.0 },
         { nome: "Del Valle Kapo Laranja", quantidade: 0, preco: 4.0 },
         { nome: "Água 500ml", quantidade: 0, preco: 2.5 },
