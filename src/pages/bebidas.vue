@@ -14,7 +14,7 @@ export default {
       tipos: [
         { nome: "Coca Litro", quantidade: 0, preco: 9.0 },
         { nome: "Guaraná Litro", quantidade: 0, preco: 8.0 },
-        { nome: "Cajuina Litro", quantidade: 0, preco: 9.0 },
+       // { nome: "Cajuina Litro", quantidade: 0, preco: 9.0 },
         { nome: "Coca Zero Litro", quantidade: 0, preco: 9.0 },
         { nome: "Coca 600ml", quantidade: 0, preco: 7.0 },
         { nome: "Coca zero 600ml", quantidade: 0, preco: 7.0 },
