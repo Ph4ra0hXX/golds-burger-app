@@ -43,8 +43,8 @@ export default {
         { nome: "Suco Maracujá", quantidade: 0, preco: 6.0 },
         { nome: "Cerveja Heineken", quantidade: 0, preco: 10.0 },
         { nome: "Cerveja Budweiser", quantidade: 0, preco: 9.0 },
-        { nome: "Monster Energy", quantidade: 0, preco: 14.0 },
-        { nome: "Monster Energy Zero", quantidade: 0, preco: 14.0 },
+        { nome: "Monster Energy", quantidade: 0, preco: 13.0 },
+        { nome: "Monster Energy Zero", quantidade: 0, preco: 13.0 },
       ],
     });
 
