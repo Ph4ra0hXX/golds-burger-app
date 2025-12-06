@@ -78,8 +78,8 @@ export const produtosStore = defineStore("produto", {
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        }, */
-      /*  {
+        },
+        {
           id: 6,
           nome: "PORÇÕES",
           img: "food3.webp",
@@ -129,8 +129,8 @@ export const produtosStore2 = defineStore("produto2", {
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        }, */
-       /* {
+        },
+        {
           id: 6,
           nome: "PORÇÕES",
           img: "food3.webp",
