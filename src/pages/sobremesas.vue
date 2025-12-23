@@ -13,7 +13,7 @@ export default {
     const Sobremesas = ref({
       tipos: [
         { nome: "Pudim 120G", quantidade: 0, preco: 7.0 },
-        { nome: "Torta de abacaxi 120G", quantidade: 0, preco: 7.0 },
+      /*  { nome: "Torta de abacaxi 120G", quantidade: 0, preco: 7.0 },
         { nome: "Brownie de Chocolate Branco", quantidade: 0, preco: 6.0 },
         { nome: "Brownie de Amendoim", quantidade: 0, preco: 6.0 },
         { nome: "Brownie Tradicional", quantidade: 0, preco: 6.0 },
@@ -23,7 +23,7 @@ export default {
         { nome: "Brownie de Beijinho", quantidade: 0, preco: 6.0 },
         { nome: "Brownie de Nutella", quantidade: 0, preco: 6.0 },
         { nome: "Brownie de Doce de Leite", quantidade: 0, preco: 6.0 },
-        { nome: "Brownie de Cappuccino", quantidade: 0, preco: 6.0 },
+        { nome: "Brownie de Cappuccino", quantidade: 0, preco: 6.0 },*/
       ],
     });
 
