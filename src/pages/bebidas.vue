@@ -38,7 +38,7 @@ export default {
         { nome: "Powerade Limão", quantidade: 0, preco: 7.0 },
         { nome: "Powerade Uva", quantidade: 0, preco: 7.0 },
         { nome: "Powerade Mix de Frutas", quantidade: 0, preco: 7.0 },
-        //{ nome: "Suco Goiaba", quantidade: 0, preco: 5.0 },
+        { nome: "Suco Goiaba", quantidade: 0, preco: 5.0 },
         { nome: "Suco Cajá", quantidade: 0, preco: 5.0 },
         { nome: "Suco Acerola", quantidade: 0, preco: 5.0 },
         { nome: "Suco Maracujá", quantidade: 0, preco: 6.0 },
