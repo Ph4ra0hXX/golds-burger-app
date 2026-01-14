@@ -22,7 +22,7 @@ export default {
         { nome: "Coalho", preco: 2.0, quantidade: 0 },
       ],
       Cremes: [
-      //  { nome: "Creme de Cheddar", preco: 2.0, quantidade: 0 },
+       { nome: "Creme de Cheddar", preco: 2.0, quantidade: 0 },
        { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
       ],
       Carne: [
