@@ -39,6 +39,7 @@ export default {
         { nome: "Presunto", preco: 2.0, quantidade: 0 },
         { nome: "🟢 Calabresa", preco: 3.0, quantidade: 0 },
         { nome: "🟢 Cebola Caramelizada", preco: 2.0, quantidade: 0 },
+        { nome: "Maionese Golds", preco: 0.0, quantidade: 0 },
         { nome: "🟢 Batata Palha", preco: 2.0, quantidade: 0 },
         { nome: "🟢 Molho Barbecue", preco: 2.0, quantidade: 0 },
         { nome: "🟢 Milho Verde", preco: 2.0, quantidade: 0 },
