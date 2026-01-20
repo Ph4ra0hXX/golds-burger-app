@@ -47,7 +47,7 @@ export default {
       Verdura: [
         { nome: "Alface", preco: 0.0, quantidade: 0 },
         { nome: "Tomate", preco: 0.0, quantidade: 0 },
-        { nome: "🟢 Cebola Crua", preco: 0.0, quantidade: 0 },
+        { nome: "Cebola Crua", preco: 0.0, quantidade: 0 },
         { nome: "Cenoura Ralada", preco: 0.0, quantidade: 0 },
       ],
     });
@@ -102,7 +102,7 @@ export default {
       <div v-for="(item, index) in Burger.Pao" :key="item">
         <button
           class="botao1"
-          @click="item.quantidade++, updateQuantities(item)"
+          @click="(item.quantidade++, updateQuantities(item))"
         >
           +
         </button>
