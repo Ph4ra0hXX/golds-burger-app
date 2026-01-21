@@ -207,7 +207,18 @@ export default {
         <hr />
       </div>
       <div v-for="(item, index) in Burger.Complemento" :key="item">
-        <button class="botao1" @click="item.quantidade++">+</button>
+        <button
+          class="botao1"
+          @click="
+            item.nome === 'Maionese Golds' && item.quantidade <= 0
+              ? item.quantidade++
+              : item.nome !== 'Maionese Golds'
+                ? item.quantidade++
+                : 0
+          "
+        >
+          +
+        </button>
 
         <button
           v-if="item.quantidade > 0"
