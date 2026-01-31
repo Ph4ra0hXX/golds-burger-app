@@ -17,7 +17,7 @@ export default {
         { nome: "Frango", quantidade: 0, preco: 17 },
         { nome: "Calabresa", quantidade: 0, preco: 17 },
         { nome: "Camarão", quantidade: 0, preco: 20 },
-        { nome: "Carne de Sol", quantidade: 0, preco: 20 },
+      //  { nome: "Carne de Sol", quantidade: 0, preco: 20 },
       ],
       molhos: [
         { nome: "Molho Rosê", quantidade: 0, preco: 0 },
