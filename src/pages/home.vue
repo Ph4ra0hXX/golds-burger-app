@@ -22,13 +22,13 @@ const nenhum = ref(store3.cardDataStore);
 function isWednesday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
-  return dayOfWeek === 3; // 3 representa quarta-feira
+  return dayOfWeek === 3;
 }
 
 function isThursday() {
   const currentDate = new Date();
   const dayOfWeek = currentDate.getDay();
-  return dayOfWeek === 4 || dayOfWeek === 5; // 4 representa quinta-feira
+  return dayOfWeek === 4 || dayOfWeek === 5;
 }
 
 function isNotWednesdayOrThursday() {
@@ -45,8 +45,8 @@ function isSegunda() {
 </script>
 
 <template>
-<!--  <h2 id="fechados">No momento estamos fechados!</h2> -->
-  
+  <!--  <h2 id="fechados">No momento estamos fechados!</h2> -->
+
   <Card v-if="isWednesday()" v-for="data in diaDeMacarronada" :data="data" />
 
   <Card v-if="isThursday()" v-for="data in diaDeSuper" :data="data" />
