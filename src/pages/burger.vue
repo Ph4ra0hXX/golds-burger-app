@@ -24,7 +24,7 @@ export default {
       ],
       Cremes: [
         { nome: "Creme de Cheddar", preco: 2.0, quantidade: 0 },
-        { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
+       // { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
       ],
       Carne: [
         { nome: "🟢 Carne de Sol", preco: 6.0, quantidade: 0 },
