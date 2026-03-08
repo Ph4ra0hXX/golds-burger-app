@@ -40,9 +40,11 @@ export const carrinhoStore = defineStore("carrinho", {
 
       pedidos.forEach((categoria) => {
         for (const chave in categoria) {
-          categoria[chave].forEach((item) => {
-            total += item.preco * item.quantidade;
-          });
+          if (Array.isArray(categoria[chave])) {
+            categoria[chave].forEach((item) => {
+              total += item.preco * item.quantidade;
+            });
+          }
         }
       });
 
@@ -72,7 +74,7 @@ export const produtosStore = defineStore("produto", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-    /*  {
+        /*  {
           id: 2,
           nome: "MACARRONADA",
           img: "food2.webp",
@@ -85,14 +87,14 @@ export const produtosStore = defineStore("produto", {
           img: "food3.webp",
           descricao: "No ponto certo",
           url: "/batata",
-        }, 
-       {
+        },
+        {
           id: 7,
           nome: "SOBREMESAS",
           img: "food5.webp",
           descricao: "Para adoçar",
           url: "/sobremesas",
-        }, 
+        },
         {
           id: 4,
           nome: "BEBIDAS",
@@ -123,7 +125,7 @@ export const produtosStore2 = defineStore("produto2", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-   /*   {
+        /*   {
           id: 2,
           nome: "MACARRONADA",
           img: "food2.webp",
@@ -136,14 +138,14 @@ export const produtosStore2 = defineStore("produto2", {
           img: "food3.webp",
           descricao: "No ponto certo",
           url: "/batata",
-        }, 
+        },
         {
           id: 7,
           nome: "SOBREMESAS",
           img: "food5.webp",
           descricao: "Para adoçar",
           url: "/sobremesas",
-        }, 
+        },
         {
           id: 4,
           nome: "BEBIDAS",
@@ -180,7 +182,7 @@ export const produtosStore3 = defineStore("produto3", {
           img: "food5.webp",
           descricao: "Para adoçar",
           url: "/sobremesas",
-        }, 
+        },
         {
           id: 4,
           nome: "BEBIDAS",

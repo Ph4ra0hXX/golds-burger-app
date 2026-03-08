@@ -40,10 +40,14 @@ export default {
 
         const resultado = dados
           .map((categoria) => {
-            return Object.keys(categoria)
+            let pedidoFormatado = Object.keys(categoria)
               .map((chave) => {
+                if (!Array.isArray(categoria[chave])) {
+                  return null;
+                }
+
                 const itensComQuantidade = categoria[chave].filter(
-                  (item) => item.quantidade > 0
+                  (item) => item.quantidade > 0,
                 );
 
                 if (itensComQuantidade.length > 0) {
@@ -57,6 +61,15 @@ export default {
               })
               .filter((categoria) => categoria !== null)
               .join("\n");
+
+            // Adiciona a opção de molho
+            if (categoria.comMolho) {
+              const molhoTexto =
+                categoria.comMolho === "sim" ? "✓ Com Molho" : "✓ Sem Molho";
+              pedidoFormatado += `\n_${molhoTexto}_`;
+            }
+
+            return pedidoFormatado;
           })
           .filter((categoria) => categoria !== null)
           .join(`\n${"-".repeat(30)}\n\n`);
@@ -80,7 +93,7 @@ export default {
             return Object.keys(categoria)
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
-                  (item) => item.quantidade > 0
+                  (item) => item.quantidade > 0,
                 );
 
                 if (itensComQuantidade.length > 0) {
@@ -111,7 +124,7 @@ export default {
             return Object.keys(categoria)
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
-                  (item) => item.quantidade > 0
+                  (item) => item.quantidade > 0,
                 );
 
                 if (itensComQuantidade.length > 0) {
@@ -142,7 +155,7 @@ export default {
             return Object.keys(categoria)
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
-                  (item) => item.quantidade > 0
+                  (item) => item.quantidade > 0,
                 );
 
                 if (itensComQuantidade.length > 0) {
@@ -173,7 +186,7 @@ export default {
             return Object.keys(categoria)
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
-                  (item) => item.quantidade > 0
+                  (item) => item.quantidade > 0,
                 );
 
                 if (itensComQuantidade.length > 0) {
@@ -208,7 +221,7 @@ export default {
             return Object.keys(categoria)
               .map((chave) => {
                 const itensComQuantidade = categoria[chave].filter(
-                  (item) => item.quantidade > 0
+                  (item) => item.quantidade > 0,
                 );
 
                 if (itensComQuantidade.length > 0) {

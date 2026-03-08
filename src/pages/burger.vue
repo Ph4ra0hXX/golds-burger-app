@@ -18,13 +18,13 @@ export default {
         { nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
       ],
       Queijo: [
-       // { nome: "Cheddar", preco: 4.0, quantidade: 0 },
+        // { nome: "Cheddar", preco: 4.0, quantidade: 0 },
         { nome: "Mussarela", preco: 3.0, quantidade: 0 },
         { nome: "Coalho", preco: 2.0, quantidade: 0 },
       ],
       Cremes: [
         { nome: "Creme de Cheddar", preco: 2.0, quantidade: 0 },
-       // { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
+        // { nome: "Cream cheese", preco: 3.0, quantidade: 0 },
       ],
       Carne: [
         { nome: "🟢 Carne de Sol", preco: 6.0, quantidade: 0 },
@@ -52,6 +52,7 @@ export default {
         { nome: "Cebola Crua", preco: 0.0, quantidade: 0 },
         { nome: "Cenoura Ralada", preco: 0.0, quantidade: 0 },
       ],
+      comMolho: "sim",
     });
 
     function salvarPedido() {
@@ -270,6 +271,34 @@ export default {
         <br />
       </div>
 
+      <div class="dotted-line">
+        <hr />
+        <span id="textDividers">Molho</span>
+        <hr />
+      </div>
+      <br />
+      <div id="molhoContainer">
+        <label style="margin-right: 30px">
+          <input
+            type="radio"
+            name="molho"
+            value="sim"
+            v-model="Burger.comMolho"
+          />
+          <span id="labelMolho">Com Molho</span>
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="molho"
+            value="nao"
+            v-model="Burger.comMolho"
+          />
+          <span id="labelMolho">Sem Molho</span>
+        </label>
+      </div>
+      <br />
+
       <button @click="salvarPedido" id="butOpcoes" type="submit" value="Submit">
         adicionar
       </button>
@@ -368,5 +397,48 @@ input[type="radio"] {
   width: 30px;
   height: 2em;
   accent-color: #f27141;
+}
+
+#molhoContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+#molhoContainer label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 15px 30px;
+  border: 2px solid #fdd426;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f2cb05 0%, #fdd426 100%);
+  box-shadow: 0 4px 15px rgba(242, 203, 5, 0.4);
+}
+
+#molhoContainer label:hover {
+  border-color: #fff;
+}
+
+#molhoContainer input[type="radio"] {
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+#molhoContainer input[type="radio"]:checked {
+  accent-color: #000;
+}
+
+#labelMolho {
+  font-weight: 700;
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
 }
 </style>
