@@ -278,7 +278,7 @@ export default {
       </div>
       <br />
       <div id="molhoContainer">
-        <label style="margin-right: 30px">
+        <label>
           <input
             type="radio"
             name="molho"
@@ -403,7 +403,7 @@ input[type="radio"] {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin: 30px 0;
+  margin-bottom: 30px;
   flex-wrap: wrap;
 }
 
