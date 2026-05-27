@@ -11,7 +11,10 @@ export default {
     const carrinho = carrinhoStore();
 
     const Macarronada = ref({
-      macarrao: [{ nome: "Macarrão Talharim", quantidade: 1, preco: 0 }],
+      macarrao: [
+        { nome: "Macarrão Talharim", quantidade: 1, preco: 0 },
+        { nome: "Macarrão Penne", quantidade: 0, preco: 0 },
+      ],
       carnes: [
         { nome: "Carne Moída", quantidade: 0, preco: 17 },
         { nome: "Frango", quantidade: 0, preco: 17 },
@@ -69,11 +72,22 @@ export default {
       });
     }
 
+    function updateQuantitiesMacarrao(selectedItem) {
+      this.Macarronada.macarrao.forEach((item) => {
+        if (item === selectedItem) {
+          item.quantidade = 1;
+        } else {
+          item.quantidade = 0;
+        }
+      });
+    }
+
     return {
       Macarronada,
       salvarPedido,
       updateQuantities,
       updateQuantitiesMolhos,
+      updateQuantitiesMacarrao,
       voltar,
     };
   },
@@ -89,7 +103,23 @@ export default {
         <hr />
       </div>
       <div v-for="(item, index) in Macarronada.macarrao" :key="item">
-        <label style="pointer-events: none" id="nomeItem" for="adicional">
+        <button
+          class="botao1"
+          @click="(item.quantidade++, updateQuantitiesMacarrao(item))"
+        >
+          +
+        </button>
+
+        <button
+          v-if="item.quantidade > 0"
+          class="botao2"
+          @click="item.quantidade--"
+        >
+          -
+        </button>
+
+        <label style="pointer-events: none" id="nomeItem" for="adicional"
+          ><span id="quantidadeDiv">{{ item.quantidade }}x</span>
           {{ item.nome }}</label
         >
         <label id="preco">R$: {{ item.preco.toFixed(2) }}</label>
@@ -103,7 +133,7 @@ export default {
       <div v-for="(item, index) in Macarronada.carnes" :key="item">
         <button
           class="botao1"
-          @click="item.quantidade++, updateQuantities(item)"
+          @click="(item.quantidade++, updateQuantities(item))"
         >
           +
         </button>
@@ -132,7 +162,7 @@ export default {
       <div v-for="(item, index) in Macarronada.molhos" :key="item">
         <button
           class="botao1"
-          @click="item.quantidade++, updateQuantitiesMolhos(item)"
+          @click="(item.quantidade++, updateQuantitiesMolhos(item))"
         >
           +
         </button>
