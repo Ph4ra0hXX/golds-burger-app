@@ -12,7 +12,7 @@ export default {
 
     const Macarronada = ref({
       macarrao: [
-       // { nome: "Macarrão Talharim", quantidade: 1, preco: 0 },
+        { nome: "Macarrão Talharim", quantidade: 1, preco: 0 },
         { nome: "Macarrão Penne", quantidade: 0, preco: 0 },
       ],
       carnes: [
@@ -24,7 +24,7 @@ export default {
       ],
       molhos: [
         { nome: "Molho Rosê", quantidade: 0, preco: 0 },
-        //{ nome: "Molho Branco", quantidade: 0, preco: 0 },
+        { nome: "Molho Branco", quantidade: 0, preco: 0 },
       ],
       ingredientes: [
         { nome: "Bacon", quantidade: 0, preco: 0 },
