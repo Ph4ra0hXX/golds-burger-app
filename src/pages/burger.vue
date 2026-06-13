@@ -15,7 +15,7 @@ export default {
         { nome: "🟢 Pão Bola", preco: 3.0, quantidade: 0 },
         { nome: "Pão Árabe", preco: 3.0, quantidade: 0 },
         { nome: "Pão Integral", preco: 4.0, quantidade: 0 },
-        //{ nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
+        { nome: "Pão Brioche", preco: 3.0, quantidade: 0 },
       ],
       Queijo: [
         { nome: "Cheddar", preco: 4.0, quantidade: 0 },
