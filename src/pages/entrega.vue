@@ -13,6 +13,10 @@ export default {
     const router = useRouter();
 
     const pedidoMontado = ref("");
+    const MARCADOR_INICIO_BURGER =
+      "\u2063\u200B\u200C\u200D\u2060\u200B\u2063";
+    const MARCADOR_FIM_BURGER =
+      "\u2063\u2060\u200D\u200C\u200B\u2060\u2063";
 
     const apesoEscolhido = ref(0);
 
@@ -36,7 +40,7 @@ export default {
       var dados = this.carrinho.burgers;
 
       if (dados.length > 0) {
-        this.pedidoMontado += "*Burger*\n\n";
+        this.pedidoMontado += `${MARCADOR_INICIO_BURGER}*Burger*\n\n`;
 
         const resultado = dados
           .map((categoria) => {
@@ -74,7 +78,7 @@ export default {
           .filter((categoria) => categoria !== null)
           .join(`\n${"-".repeat(30)}\n\n`);
 
-        this.pedidoMontado += resultado;
+        this.pedidoMontado += `${resultado}${MARCADOR_FIM_BURGER}`;
       }
 
       var numeroDoPedido = 1;
