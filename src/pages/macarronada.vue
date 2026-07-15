@@ -14,6 +14,7 @@ export default {
       macarrao: [
         { nome: "Macarrão Talharim", quantidade: 1, preco: 0 },
         { nome: "Macarrão Penne", quantidade: 0, preco: 0 },
+        { nome: "Macarrão Parafuso", quantidade: 0, preco: 0 },
       ],
       carnes: [
         { nome: "Carne Moída", quantidade: 0, preco: 17 },
