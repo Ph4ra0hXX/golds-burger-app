@@ -41,6 +41,7 @@ export default {
         { nome: "Suco Goiaba", quantidade: 0, preco: 5.0 },
         { nome: "Suco Cajá", quantidade: 0, preco: 5.0 },
         { nome: "Suco Acerola", quantidade: 0, preco: 5.0 },
+        { nome: "Suco de Manga", quantidade: 0, preco: 5.0 },
         { nome: "Suco Maracujá", quantidade: 0, preco: 6.0 },
         { nome: "Cerveja Heineken", quantidade: 0, preco: 10.0 },
         { nome: "Cerveja Budweiser", quantidade: 0, preco: 9.0 },
