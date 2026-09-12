@@ -23,6 +23,11 @@ export default {
           preco: 20.0,
           quantidade: 0,
         },
+        {
+          nome: "Macaxeira Frita (150g)",
+          preco: 15.0,
+          quantidade: 0,
+        },
         /* {
           nome: "Bolinha de Queijo (12 unidades)",
           preco: 20.0,
