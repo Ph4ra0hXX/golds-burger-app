@@ -74,13 +74,13 @@ export const produtosStore = defineStore("produto", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-     /*   {
+        {
           id: 2,
           nome: "MACARRONADA",
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        }, */
+        },
         {
           id: 6,
           nome: "PORÇÕES",
@@ -88,7 +88,7 @@ export const produtosStore = defineStore("produto", {
           descricao: "No ponto certo",
           url: "/batata",
         },
-     /*   {
+        /*   {
           id: 7,
           nome: "SOBREMESAS",
           img: "food5.webp",
@@ -125,13 +125,13 @@ export const produtosStore2 = defineStore("produto2", {
           descricao: "Monte do seu jeito",
           url: "/burger",
         },
-      /*  {
+        {
           id: 2,
           nome: "MACARRONADA",
           img: "food2.webp",
           descricao: "Monte do seu jeito",
           url: "/macarronada",
-        }, */
+        },
         {
           id: 6,
           nome: "PORÇÕES",
@@ -139,7 +139,7 @@ export const produtosStore2 = defineStore("produto2", {
           descricao: "No ponto certo",
           url: "/batata",
         },
-      /*  {
+        /*  {
           id: 7,
           nome: "SOBREMESAS",
           img: "food5.webp",
@@ -176,7 +176,7 @@ export const produtosStore3 = defineStore("produto3", {
           descricao: "No ponto certo",
           url: "/batata",
         },
-      /*  {
+        /*  {
           id: 7,
           nome: "SOBREMESAS",
           img: "food5.webp",
