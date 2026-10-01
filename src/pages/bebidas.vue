@@ -27,7 +27,7 @@ export default {
      //   { nome: "Guaraná Lata", quantidade: 0, preco: 5.0 },
         { nome: "Laranja Lata", quantidade: 0, preco: 5.0 },
        // { nome: "Uva Lata", quantidade: 0, preco: 5.0 },
-        { nome: "São Geraldo Lata", quantidade: 0, preco: 5.0 },
+       // { nome: "São Geraldo Lata", quantidade: 0, preco: 5.0 },
         { nome: "Schweppes Cítrus Lata", quantidade: 0, preco: 5.0 },
         { nome: "Kuat Lata", quantidade: 0, preco: 5.0 },
         { nome: "Del Valle Kapo Uva", quantidade: 0, preco: 3.0 },
