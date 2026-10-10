@@ -25,7 +25,7 @@ export default {
         { nome: "Fanta Caju Lata", quantidade: 0, preco: 5.0 },
         { nome: "Coca Zero Lata", quantidade: 0, preco: 5.0 },
      //   { nome: "Guaraná Lata", quantidade: 0, preco: 5.0 },
-        { nome: "Laranja Lata", quantidade: 0, preco: 5.0 },
+       // { nome: "Laranja Lata", quantidade: 0, preco: 5.0 },
        // { nome: "Uva Lata", quantidade: 0, preco: 5.0 },
         { nome: "São Geraldo Lata", quantidade: 0, preco: 5.0 },
         { nome: "Schweppes Cítrus Lata", quantidade: 0, preco: 5.0 },
