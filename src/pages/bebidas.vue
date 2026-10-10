@@ -34,7 +34,7 @@ export default {
         { nome: "Del Valle Kapo Laranja", quantidade: 0, preco: 4.0 },
         { nome: "Água 500ml", quantidade: 0, preco: 2.5 },
         { nome: "Água com Gás 500ml", quantidade: 0, preco: 3.0 },
-        { nome: "Água Sprite 500ml", quantidade: 0, preco: 4.5 },
+     //   { nome: "Água Sprite 500ml", quantidade: 0, preco: 4.5 },
         { nome: "Powerade Limão", quantidade: 0, preco: 7.0 },
         { nome: "Powerade Uva", quantidade: 0, preco: 7.0 },
         { nome: "Powerade Mix de Frutas", quantidade: 0, preco: 7.0 },
